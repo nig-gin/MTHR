@@ -1,0 +1,40 @@
+<div class="conteiner-form">
+
+  <div  [formGroup]="loginForm"  (ngSubmit)="onSubmit()">
+      <h2>Вход в систему</h2>
+
+
+   <form>
+     <div>
+          <label>Email:</label>
+
+            <input class="form-control" id="email" name="email"  type="text"
+                   formControlName="email" required="required">
+            <div class="alert-danger" *ngIf="loginForm.touched && loginForm.invalid" >
+
+              <small *ngIf="loginForm"> Введите данные </small>
+
+            </div>
+
+
+     </div>
+
+
+      <div >
+      <label>  Пароль: </label>
+        <input class="form-control" type="text" formControlName="password">
+
+
+        <small class="alert-danger" *ngIf="loginForm.touched && loginForm.invalid" > Введите пароль</small>
+      </div>
+
+
+      <button (click)="login()" mat-raised-button color="primary"  type="submit" [disabled]="!loginForm.valid">Submit</button>
+    </form>
+</div>
+
+
+
+<p>
+  Form Status: {{ loginForm.status }}
+</p>

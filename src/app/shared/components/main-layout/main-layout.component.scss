@@ -1,0 +1,17 @@
+h1{
+  text-align: left;
+  letter-spacing: 5px;
+  font-size: 40px;
+}
+.navbar.main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 2rem;
+  z-index: 1;
+  width: 100%;
+  opacity: 0.9;
+  margin-bottom: 1rem;
+  justify-content: center;
+  border-bottom: 1px solid var(--dark-color);
+}
