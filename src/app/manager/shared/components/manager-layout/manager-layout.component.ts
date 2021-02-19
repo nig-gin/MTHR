@@ -18,6 +18,6 @@ export class ManagerLayoutComponent implements OnInit {
 
   logout(event: Event) {
     event.preventDefault();
-    this.router.navigate(['/', 'home']);
+    this.router.navigate(['/']);
   }
 }

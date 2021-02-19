@@ -1,34 +1,21 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {RouterModule} from '@angular/router';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {ManagerLayoutComponent} from './shared/components/manager-layout/manager-layout.component';
-import {JournalPageComponent} from './journal-page/journal-page.component';
-import {AuthService} from './shared/components/services/auth.service';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
+import { ManagerRoutingModule } from './manager-routing.module';
+import {ManagerLayoutComponent} from './shared/components/manager-layout/manager-layout.component';
+import {MatButtonModule} from '@angular/material/button';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { CalendarPageComponent } from './calendar-page/calendar-page.component';
+import { ListWorkPageComponent } from './list-work-page/list-work-page.component';
+import { AdminManagerPageComponent } from './admin-manager-page/admin-manager-page.component';
 
 
 @NgModule({
-  declarations: [
-    ManagerLayoutComponent,
-    JournalPageComponent,
-      ],
+  declarations: [ManagerLayoutComponent, CalendarPageComponent, ListWorkPageComponent, AdminManagerPageComponent],
   imports: [
     CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    RouterModule.forChild([
-      {
-        path: '', component: ManagerLayoutComponent, children: [
-          {path: '', redirectTo: '/manager/journal', pathMatch: 'full'},
-          {path: 'journal', component: JournalPageComponent}
-        ]
-      }
-    ]),
-  ],
-  exports: [RouterModule],
-  providers: [AuthService]
+    ManagerRoutingModule,
+    MatButtonModule,
+  ]
 })
-export class ManagerModule {
-
-}
+export class ManagerModule { }

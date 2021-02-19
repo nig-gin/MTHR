@@ -20,8 +20,6 @@ constructor(
       Validators.minLength(6),
       Validators.required])
   });
-// get email() {return this.loginForm.get('email'); }
-// get password() {return this.loginForm.get('password'); }
 
   onSubmit() {
     console.warn(this.loginForm.value);
@@ -37,9 +35,8 @@ constructor(
   });
   }
   login() {
+    this.router.navigate(['/manager', 'journal']);
     return console.log('Auth_ok');
-
-    this.router.navigate(['/manager', 'jurnal']);
   }
 
 

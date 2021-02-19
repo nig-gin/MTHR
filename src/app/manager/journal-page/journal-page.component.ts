@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Component({
   selector: 'app-journal-page',
@@ -7,11 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JournalPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
+    const url = 'http://192.168.1.17:8080/task/all';
+    this.httpClient.get(url)
+      .subscribe(response => {
+        console.log('Response', response);
+      });
+
   }
-  // logout() {
-  //   return console.log('Auth_ok');
-  // }
 }

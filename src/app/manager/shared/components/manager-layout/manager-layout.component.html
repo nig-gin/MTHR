@@ -3,13 +3,21 @@
   <h1>Моточасы</h1>
   <ul>
     <li routerLinkActive="active">
-      <a [routerLink]="['/admin', 'dashboard']">Главная</a>
+      <a class="btn-navbar" mat-stroked-button color="primary" [routerLink]="['/manager', 'journal']">Журнал</a>
     </li>
     <li routerLinkActive="active">
-      <a [routerLink]="['/admin', 'create']">Создать</a>
+      <a class="btn-navbar" mat-stroked-button color="primary" [routerLink]="['/manager', 'calendar']">Календарь</a>
+    </li>
+    <li routerLinkActive="active">
+      <a class="btn-navbar" mat-stroked-button color="primary" [routerLink]="['/manager', 'list-work']">Календарь</a>
+    </li>
+    <li routerLinkActive="active">
+      <a class="btn-navbar" mat-stroked-button color="primary" [routerLink]="['/manager', 'admin-manager']">Панель
+        администратора</a>
     </li>
     <li>
-      <a href="#" (click)="logout($event)">Выйти</a>
+
+      <div class="btn-logout" ><a   mat-stroked-button color="primary" href="#" (click)="logout($event)">Выйти</a></div>
     </li>
   </ul>
 </nav>

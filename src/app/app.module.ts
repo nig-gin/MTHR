@@ -10,9 +10,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {AuthService} from './manager/shared/components/services/auth.service';
-
-
-
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,8 +25,9 @@ import {AuthService} from './manager/shared/components/services/auth.service';
       ReactiveFormsModule,
     MatButtonModule,
     BrowserAnimationsModule,
+    HttpClientModule,
       ],
-  providers: [AuthService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

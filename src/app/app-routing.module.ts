@@ -13,15 +13,13 @@ const routes: Routes = [
 
     ]
   },
-  {
-    path: 'manager', loadChildren: './ manager.module#ManagerModule'
-  }
+  { path: 'manager', loadChildren: () => import('./manager/manager.module').then(m => m.ManagerModule) }
+
 ];
 
+
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {
-    preloadingStrategy: PreloadAllModules
-  })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
