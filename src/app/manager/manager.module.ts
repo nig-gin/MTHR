@@ -12,7 +12,11 @@ import {RouterModule} from '@angular/router';
 
 
 @NgModule({
-  declarations: [ManagerLayoutComponent, CalendarPageComponent, ListWorkPageComponent, AdminManagerPageComponent],
+  declarations: [
+    ManagerLayoutComponent,
+    CalendarPageComponent,
+    ListWorkPageComponent,
+    AdminManagerPageComponent],
   imports: [
     CommonModule,
     ManagerRoutingModule,
