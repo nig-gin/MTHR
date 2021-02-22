@@ -11,6 +11,8 @@ import { AdminManagerPageComponent } from './admin-manager-page/admin-manager-pa
 import {RouterModule} from '@angular/router';
 import {RestApiService} from './shared/components/services/restApi.service';
 import {HttpClientModule} from '@angular/common/http';
+import {JournalPageComponent} from './journal-page/journal-page.component';
+
 
 
 @NgModule({
@@ -19,6 +21,7 @@ import {HttpClientModule} from '@angular/common/http';
     CalendarPageComponent,
     ListWorkPageComponent,
     AdminManagerPageComponent,
+    JournalPageComponent,
      ],
 
   imports: [

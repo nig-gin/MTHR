@@ -1,1 +1,29 @@
-<p>admin-manager-page works!</p>
+
+<div class="card">
+  <table>
+    <thead>
+    <tr>
+      <td>№ </td>
+      <td>ФИО  </td>
+      <td>Логин</td>
+      <td>Пароль </td>
+      <td> Должность </td>
+      <td> МобТел </td>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let userSts of restApiService.userSt; let idx = index">
+
+      <td>{{userSts.id}}</td>
+<!--      <td>{{userSt.fullName}}</td>-->
+<!--      <td>{{userSt.position}}</td>-->
+<!--      <td>{{userSt.username}}</td>-->
+<!--      <td>{{userSt.password}}</td>-->
+<!--      <td>{{userSt.phone}}</td>-->
+<!--      <td>{{userSt.categoria}}</td>-->
+<!--      <td>{{userSt.prompt}}</td>-->
+    </tr>
+    </tbody>
+  </table>
+</div>

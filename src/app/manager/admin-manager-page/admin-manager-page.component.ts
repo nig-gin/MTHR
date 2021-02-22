@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {RestApiService} from '../shared/components/services/restApi.service';
 
 @Component({
   selector: 'app-admin-manager-page',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminManagerPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public restApiService: RestApiService
+  ) { }
 
   ngOnInit(): void {
+    this.restApiService.getUsers();
   }
 
 }

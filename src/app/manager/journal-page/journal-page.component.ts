@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {jourInterface} from '../../shared/interfeces';
+import {jourInterface} from '../../shared/object/interfeces';
 import {RestApiService} from '../shared/components/services/restApi.service';
 import {Subscription} from 'rxjs';
 
@@ -17,17 +17,7 @@ export class JournalPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.restApiService.getAll();
-
+    this.restApiService.getUsers();
   }
 }
-
-
-  //   const url = 'http://192.168.1.17:8080/task/all';
-  //   this.httpClient.get(url)
-  //     .subscribe(response => {
-  //       console.log('Response', response);
-  //     });
-  // }
-
 
