@@ -16,9 +16,8 @@ import {HttpClientModule} from '@angular/common/http';
   declarations: [
     AppComponent,
     MainLayoutComponent,
-    HomePageComponent
-
-  ],
+    HomePageComponent,
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -29,5 +28,8 @@ import {HttpClientModule} from '@angular/common/http';
       ],
   providers: [],
   bootstrap: [AppComponent]
+
+
+
 })
 export class AppModule { }

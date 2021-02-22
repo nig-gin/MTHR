@@ -12,6 +12,8 @@ import {RouterModule} from '@angular/router';
 import {RestApiService} from './shared/components/services/restApi.service';
 import {HttpClientModule} from '@angular/common/http';
 import {JournalPageComponent} from './journal-page/journal-page.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -29,8 +31,11 @@ import {JournalPageComponent} from './journal-page/journal-page.component';
     ManagerRoutingModule,
     MatButtonModule,
     HttpClientModule,
+    MatTableModule,
+    MatSelectModule,
   ],
   exports: [RouterModule],
   providers: [RestApiService]
+
 })
 export class ManagerModule { }

@@ -10,17 +10,21 @@ import {UserSt} from '../../../../shared/object/user-st';
 export class RestApiService {
 
 
-  public userSt: UserSt[] = [];
+
+  userSts: UserSt[] = [];
   constructor(private httpClient: HttpClient){}
-  getUsers(): Observable<UserSt[]> {
+
+    getUsers() {
       const url = 'http://192.168.1.17:8080/task/all';
-      this.httpClient.get<UserSt[]>(`${environment.fbDbUrl}/users.json`)
+      this.httpClient.get<UserSt[]>(`${environment.fbDbUrl}+/users.json`)
         .subscribe(userSt => {
           console.log('response', userSt);
-          this.userSt = userSt;
+          this.userSts = userSt;
     });
   }
-}
+
+  }
+
 
 
 // getUsers(): Observable<UserSt[]> {

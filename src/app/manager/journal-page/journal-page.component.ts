@@ -17,7 +17,7 @@ export class JournalPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.restApiService.getUsers();
+
   }
 }
 
