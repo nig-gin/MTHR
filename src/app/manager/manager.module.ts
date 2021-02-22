@@ -9,6 +9,8 @@ import { CalendarPageComponent } from './calendar-page/calendar-page.component';
 import { ListWorkPageComponent } from './list-work-page/list-work-page.component';
 import { AdminManagerPageComponent } from './admin-manager-page/admin-manager-page.component';
 import {RouterModule} from '@angular/router';
+import {RestApiService} from './shared/components/services/restApi.service';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -16,12 +18,16 @@ import {RouterModule} from '@angular/router';
     ManagerLayoutComponent,
     CalendarPageComponent,
     ListWorkPageComponent,
-    AdminManagerPageComponent],
+    AdminManagerPageComponent,
+     ],
+
   imports: [
     CommonModule,
     ManagerRoutingModule,
     MatButtonModule,
+    HttpClientModule,
   ],
   exports: [RouterModule],
+  providers: [RestApiService]
 })
 export class ManagerModule { }
