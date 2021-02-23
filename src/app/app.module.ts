@@ -11,6 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {AuthService} from './manager/shared/components/services/auth.service';
 import {HttpClientModule} from '@angular/common/http';
+import {MatDividerModule} from '@angular/material/divider';
+
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import {HttpClientModule} from '@angular/common/http';
     MatButtonModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MatDividerModule
       ],
   providers: [],
   bootstrap: [AppComponent]

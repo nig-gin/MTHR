@@ -33,6 +33,7 @@ import {MatSelectModule} from '@angular/material/select';
     HttpClientModule,
     MatTableModule,
     MatSelectModule,
+
   ],
   exports: [RouterModule],
   providers: [RestApiService]

@@ -31,17 +31,13 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class AdminManagerPageComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  dataSource = ELEMENT_DATA;
 
 
 
   constructor(
     public restApiService: RestApiService
   ) {
-  }
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
   ngOnInit(): void {
     this.restApiService.getUsers();
