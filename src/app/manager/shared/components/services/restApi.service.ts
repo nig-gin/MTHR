@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {jourInterface} from '../../../../shared/object/interfeces';
 import {map} from 'rxjs/operators';
@@ -14,16 +14,16 @@ export class RestApiService {
   public userSts: UserSt[] = [];
   constructor(private httpClient: HttpClient){}
 
-    getUsers() {
-
-      this.httpClient.get<UserSt[]>(`${environment.fbDbUrl}/users.json`)
-        .subscribe(userSt => {
-          console.log('response', userSt);
-          this.userSts = userSt;
-    });
+  getUsers() {
+    const url = 'http://192.168.1.17:8080/task/all';
+    this.httpClient.get<UserSt[]>(`${environment.fbDbUrl}/users.json`)
+      .subscribe(userSt => {
+        console.log('response', userSt);
+        this.userSts = userSt;
+      });
   }
 
-  }
+}
 
 
 

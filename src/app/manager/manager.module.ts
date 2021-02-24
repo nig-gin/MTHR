@@ -24,7 +24,7 @@ import {MatSelectModule} from '@angular/material/select';
     ListWorkPageComponent,
     AdminManagerPageComponent,
     JournalPageComponent,
-     ],
+  ],
 
   imports: [
     CommonModule,
@@ -33,7 +33,6 @@ import {MatSelectModule} from '@angular/material/select';
     HttpClientModule,
     MatTableModule,
     MatSelectModule,
-
   ],
   exports: [RouterModule],
   providers: [RestApiService]

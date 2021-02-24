@@ -12,7 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {AuthService} from './manager/shared/components/services/auth.service';
 import {HttpClientModule} from '@angular/common/http';
 import {MatDividerModule} from '@angular/material/divider';
-
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatButtonModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatDividerModule
+    MatDividerModule,
+    MatTableModule
       ],
   providers: [],
   bootstrap: [AppComponent]

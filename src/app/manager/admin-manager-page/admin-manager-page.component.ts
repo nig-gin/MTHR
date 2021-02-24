@@ -22,23 +22,31 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
   {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
   {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
-
+  ];
+// id: number;
+// fullName: string;
+// username: string;
+// email: string;
+// phone: string;
+// password: string;
+// prompt: string; /*подсказка*/
+// position: string;
+// categoria: string;
 @Component({
   selector: 'app-admin-manager-page',
   templateUrl: './admin-manager-page.component.html',
   styleUrls: ['./admin-manager-page.component.scss']
 })
 export class AdminManagerPageComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
-
+  displayedColumns = ['id', 'fullName', 'username', 'email'];
+  dataSource = this.restApiService.userSts;
 
 
   constructor(
     public restApiService: RestApiService
   ) {
   }
+
   ngOnInit(): void {
     this.restApiService.getUsers();
 
