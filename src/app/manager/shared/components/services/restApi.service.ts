@@ -31,8 +31,11 @@ export class RestApiService {
             ...response[key],
             id: key,
             date: new Date(response[key].date)
-          }))
-      }))
+          }));
+      }));
+  }
+  remove(id: string): Observable<void> {
+    return this.httpClient.delete<void>(`${environment.fbDbUrl}/users/${id}.json`)
   }
 }
 

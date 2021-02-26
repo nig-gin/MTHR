@@ -14,6 +14,10 @@ import {HttpClientModule} from '@angular/common/http';
 import {JournalPageComponent} from './journal-page/journal-page.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatSelectModule} from '@angular/material/select';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogOverviewComponent } from './shared/components/dialog-overview/dialog-overview.component';
+import {FormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
 
 
 
@@ -24,6 +28,8 @@ import {MatSelectModule} from '@angular/material/select';
     ListWorkPageComponent,
     AdminManagerPageComponent,
     JournalPageComponent,
+    DialogOverviewComponent,
+
   ],
 
   imports: [
@@ -33,9 +39,11 @@ import {MatSelectModule} from '@angular/material/select';
     HttpClientModule,
     MatTableModule,
     MatSelectModule,
+    MatDialogModule,
+    FormsModule,
+    MatInputModule
   ],
   exports: [RouterModule],
-  providers: [RestApiService]
-
+  providers: [RestApiService],
 })
 export class ManagerModule { }

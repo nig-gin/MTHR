@@ -4,7 +4,7 @@ export interface UserSt {
   categoria: string;
   email: string;
   fullName: string;
-  id: number;
+  id?: string;
   password: string;
   phone: string;
   position: string;

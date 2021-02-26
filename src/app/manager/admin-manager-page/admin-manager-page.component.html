@@ -1,9 +1,7 @@
-
-
 <!--- Note that these columns can be defined in any order.
       The actual rendered columns are set as a property on the row definition" -->
 
-
+<div *ngIf="users.length; else loading">
 <table  mat-table [dataSource]="users" class="mat-elevation-z9">
 
   <ng-container matColumnDef="username">
@@ -38,14 +36,24 @@
   <ng-container matColumnDef="act">
     <th mat-header-cell *matHeaderCellDef> Действие </th>
     <td mat-cell *matCellDef="let users">
-      <button class="btn btn-link open" class="bottom-admin" mat-raised-button color="primary"  type="submit">
+      <button  class="bottom-admin"
+              mat-raised-button color="primary"
+              type="submit">
         Изменить
       </button>
-      <a class="btn-danger" mat-raised-button color="warn" (click)="remove(users.id)">Удалить</a>
+    <a mat-button (click)="openDialog()" mat-raised-button color="warn"> Удалить</a>
+<!--         (click)="remove(users.id)">Удалить</a>-->
+
     </td>
   </ng-container>
-
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
 </table>
+</div>
+
+
+
+<ng-template #loading>
+  <p class="text-center">Идет загрузка...</p>
+</ng-template>

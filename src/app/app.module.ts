@@ -13,6 +13,8 @@ import {AuthService} from './manager/shared/components/services/auth.service';
 import {HttpClientModule} from '@angular/common/http';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatTableModule} from '@angular/material/table';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {ManagerModule} from './manager/manager.module';
 
 @NgModule({
   declarations: [
@@ -21,14 +23,17 @@ import {MatTableModule} from '@angular/material/table';
     HomePageComponent,
     ],
   imports: [
+
     BrowserModule,
     AppRoutingModule,
-      ReactiveFormsModule,
+    ReactiveFormsModule,
     MatButtonModule,
     BrowserAnimationsModule,
     HttpClientModule,
     MatDividerModule,
-    MatTableModule
+    MatTableModule,
+    MatFormFieldModule,
+    ManagerModule
       ],
   providers: [],
   bootstrap: [AppComponent]

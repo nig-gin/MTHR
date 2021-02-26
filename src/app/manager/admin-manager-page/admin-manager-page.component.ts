@@ -1,37 +1,12 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, HostListener, OnDestroy, OnInit} from '@angular/core';
 import {RestApiService} from '../shared/components/services/restApi.service';
 import {UserSt} from '../../shared/object/user-st';
 import {MatTableDataSource} from '@angular/material/table';
 import {Subscription} from 'rxjs';
+import {MatDialog} from '@angular/material/dialog';
+import {DialogOverviewComponent} from '../shared/components/dialog-overview/dialog-overview.component';
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-  ];
-// id: number;
-// fullName: string;
-// username: string;
-// email: string;
-// phone: string;
-// password: string;
-// prompt: string; /*подсказка*/
-// position: string;
-// categoria: string;
 @Component({
   selector: 'app-admin-manager-page',
   templateUrl: './admin-manager-page.component.html',
@@ -42,21 +17,39 @@ export class AdminManagerPageComponent implements OnInit, OnDestroy{
 
   pSub!: Subscription;
   dSub!: Subscription;
-  users: UserSt[] = [];
-
+   users: UserSt[] = [];
+  trusted!: boolean;
   displayedColumns: string[] = ['username', 'categoria', 'fullName',
     'email', 'password', 'phone', 'prompt', 'act'];
-  constructor(
-    public restApiService: RestApiService
-  ) {
-  }
+  username!: [string];
+  name!: string;
 
-  ngOnInit(): void {
-    this.restApiService.getAll().subscribe(users => {
-      this.users = users;
+  constructor(
+    public restApiService: RestApiService,
+    public dialog: MatDialog,
+  ) {}
+
+
+ngOnInit(): void {
+  this.restApiService.getAll().subscribe(users => {
+    this.users = users;
+
+  });
+}
+
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogOverviewComponent, {
+      width: '250px',
+      data: {name: this.name, username: this.users}
     });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
+
+
   ngOnDestroy() {
     if (this.pSub) {
       this.pSub.unsubscribe();
@@ -67,10 +60,12 @@ export class AdminManagerPageComponent implements OnInit, OnDestroy{
     }
   }
 
-  remove(id: any) {
+  remove(id: string) {
 
+    // this.dSub = this.restApiService.remove(id).subscribe(() => {
+    //   this.users = this.users.filter(user => user.id !== id);
+    // });
+    console.log(id + 'remove bottom');
   }
 }
-
-
 
