@@ -1,13 +1,14 @@
-export interface UserSt {
-  id: number;
-  fullName: string;
-  username: string;
-  email: string;
-  phone: string;
-  password: string;
-  prompt: string; /*подсказка*/
-  position: string;
-  categoria: string;
 
+
+export interface UserSt {
+  categoria: string;
+  email: string;
+  fullName: string;
+  id: number;
+  password: string;
+  phone: string;
+  position: string;
+  prompt: string; /*подсказка*/
+  username: string;
 
 }

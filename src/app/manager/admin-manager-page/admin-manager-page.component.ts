@@ -37,19 +37,31 @@ const ELEMENT_DATA: PeriodicElement[] = [
   templateUrl: './admin-manager-page.component.html',
   styleUrls: ['./admin-manager-page.component.scss']
 })
-export class AdminManagerPageComponent implements OnInit {
+export class AdminManagerPageComponent implements OnInit, OnDestroy{
   displayedColumns = ['id', 'fullName', 'username', 'email'];
-  dataSource = this.restApiService.userSts;
-
-
+  // dataSource = this.restApiService.userSts;
+  pSub!: Subscription;
+  dSub!: Subscription;
+  users: UserSt[] = [];
   constructor(
     public restApiService: RestApiService
   ) {
   }
 
   ngOnInit(): void {
-    this.restApiService.getUsers();
+    this.restApiService.getAll().subscribe(users => {
+      this.users = users;
+    });
 
+  }
+  ngOnDestroy() {
+    if (this.pSub) {
+      this.pSub.unsubscribe();
+    }
+
+    if (this.dSub) {
+      this.dSub.unsubscribe();
+    }
   }
 }
 

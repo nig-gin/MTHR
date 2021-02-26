@@ -22,7 +22,18 @@ export class RestApiService {
         this.userSts = userSt;
       });
   }
-
+  getAll(): Observable<UserSt[]> {
+    return this.httpClient.get(`${environment.fbDbUrl}/users.json`)
+      .pipe(map((response: {[key: string]: any}) => {
+        return Object
+          .keys(response)
+          .map(key => ({
+            ...response[key],
+            id: key,
+            date: new Date(response[key].date)
+          }))
+      }))
+  }
 }
 
 
