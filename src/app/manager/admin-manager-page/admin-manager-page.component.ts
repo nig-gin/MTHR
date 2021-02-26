@@ -38,11 +38,14 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./admin-manager-page.component.scss']
 })
 export class AdminManagerPageComponent implements OnInit, OnDestroy{
-  displayedColumns = ['id', 'fullName', 'username', 'email'];
-  // dataSource = this.restApiService.userSts;
+
+
   pSub!: Subscription;
   dSub!: Subscription;
   users: UserSt[] = [];
+
+  displayedColumns: string[] = ['username', 'categoria', 'fullName',
+    'email', 'password', 'phone', 'prompt', 'act'];
   constructor(
     public restApiService: RestApiService
   ) {
@@ -62,6 +65,10 @@ export class AdminManagerPageComponent implements OnInit, OnDestroy{
     if (this.dSub) {
       this.dSub.unsubscribe();
     }
+  }
+
+  remove(id: any) {
+
   }
 }
 
