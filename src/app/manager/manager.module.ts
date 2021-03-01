@@ -18,6 +18,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { DialogOverviewComponent } from './shared/components/dialog-overview/dialog-overview.component';
 import {FormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
+import { CreateUserComponent } from './create-user/create-user.component';
+
 
 
 
@@ -29,6 +31,7 @@ import {MatInputModule} from '@angular/material/input';
     AdminManagerPageComponent,
     JournalPageComponent,
     DialogOverviewComponent,
+    CreateUserComponent,
 
   ],
 

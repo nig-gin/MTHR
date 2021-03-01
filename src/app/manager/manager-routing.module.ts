@@ -5,10 +5,7 @@ import {JournalPageComponent} from './journal-page/journal-page.component';
 import {CalendarPageComponent} from './calendar-page/calendar-page.component';
 import {AdminManagerPageComponent} from './admin-manager-page/admin-manager-page.component';
 import {ListWorkPageComponent} from './list-work-page/list-work-page.component';
-
-
-
-
+import {CreateUserComponent} from './create-user/create-user.component';
 
 
 const routes: Routes = [{ path: '', component: ManagerLayoutComponent, children: [
@@ -17,6 +14,7 @@ const routes: Routes = [{ path: '', component: ManagerLayoutComponent, children:
     { path: 'calendar', component: CalendarPageComponent},
     { path: 'list-work', component: ListWorkPageComponent},
     { path: 'admin-manager', component: AdminManagerPageComponent},
+    {path: 'create-user', component: CreateUserComponent},
   ]}
    ];
 

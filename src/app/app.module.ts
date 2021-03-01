@@ -16,11 +16,12 @@ import {MatTableModule} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {ManagerModule} from './manager/manager.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     MainLayoutComponent,
-    HomePageComponent,
+    HomePageComponent
     ],
   imports: [
 

@@ -39,10 +39,12 @@
       <button  class="bottom-admin"
               mat-raised-button color="primary"
               type="submit">
+<!--               (click)="remove(users.id)">-->
+
         Изменить
       </button>
-    <a mat-button (click)="openDialog()" mat-raised-button color="warn"> Удалить</a>
-<!--         (click)="remove(users.id)">Удалить</a>-->
+    <a mat-button (click)="openDialog( users.id,  users.username)" mat-raised-button color="warn"> Удалить</a>
+      <!--         (click)="remove(users.id)">Удалить</a>-->
 
     </td>
   </ng-container>
