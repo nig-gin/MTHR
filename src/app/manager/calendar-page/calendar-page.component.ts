@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {Subscription} from 'rxjs';
 import {UserSt} from '../../shared/object/user-st';
-import {RestApiService} from '../shared/components/services/restApi.service';
+import {AdminRestApiService} from '../shared/components/services/adminRestApi.service';
 import {Element} from '@angular/compiler';
 
 
@@ -22,7 +22,7 @@ export class CalendarPageComponent implements OnInit, OnDestroy {
   displayedColumns: string[] = ['username', 'categoria', 'fullName',
                             'email', 'password', 'phone', 'prompt', 'act'];
   constructor(
-    public restApiService: RestApiService
+    public restApiService: AdminRestApiService
   ) {
   }
 

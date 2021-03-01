@@ -4,24 +4,32 @@ import {Observable} from 'rxjs';
 import {jourInterface} from '../../../../shared/object/interfeces';
 import {map} from 'rxjs/operators';
 import {environment} from '../../../../../environments/environment';
-import {UserSt} from '../../../../shared/object/user-st';
+import {FbCreateResponse, UserSt} from '../../../../shared/object/user-st';
+import {userConfirmRemove} from '../../../admin-manager-page/admin-manager-page.component';
 
 @Injectable({providedIn: 'root'})
-export class RestApiService {
+
+export class AdminRestApiService {
 
 
 
   public userSts: UserSt[] = [];
   constructor(private httpClient: HttpClient){}
 
-  getUsers() {
-    const url = 'http://192.168.1.17:8080/task/all';
-    this.httpClient.get<UserSt[]>(`${environment.fbDbUrl}/users.json`)
-      .subscribe(userSt => {
-        console.log('response', userSt);
-        this.userSts = userSt;
-      });
-  }
+  // getUsers() {
+  //   const url = 'http://192.168.1.17:8080/task/all';
+  //   this.httpClient.get<UserSt[]>(`${environment.fbDbUrl}/users.json`)
+  //     .subscribe(userSt => {
+  //       console.log('response', userSt);
+  //       this.userSts = userSt;
+  //     });
+  // }
+
+  // create(user: userConfirmRemove): Observable<UserSt> {
+  //   return this.httpClient.post(`${environment.fbDbUrl}/users.json`, user);
+  //
+  //
+  // }
   getAll(): Observable<UserSt[]> {
     return this.httpClient.get(`${environment.fbDbUrl}/users.json`)
       .pipe(map((response: {[key: string]: any}) => {

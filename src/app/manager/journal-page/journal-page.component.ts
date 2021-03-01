@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {jourInterface} from '../../shared/object/interfeces';
-import {RestApiService} from '../shared/components/services/restApi.service';
+import {AdminRestApiService} from '../shared/components/services/adminRestApi.service';
 import {Subscription} from 'rxjs';
 
 @Component({
@@ -13,7 +13,7 @@ export class JournalPageComponent implements OnInit {
 
 
   constructor(
-    public restApiService: RestApiService
+    public restApiService: AdminRestApiService
   ) {}
 
   ngOnInit(): void {

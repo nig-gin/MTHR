@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
   templateUrl: './manager-layout.component.html',
   styleUrls: ['./manager-layout.component.scss']
 })
+
 export class ManagerLayoutComponent implements OnInit {
 
   constructor(

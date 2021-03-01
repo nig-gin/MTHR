@@ -12,3 +12,6 @@ export interface UserSt {
   prompt: string; /*подсказка*/
   username: string;
 }
+export interface FbCreateResponse {
+  name: string;
+}

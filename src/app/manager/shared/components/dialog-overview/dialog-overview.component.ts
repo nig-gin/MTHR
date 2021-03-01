@@ -1,9 +1,8 @@
-import {Component, Inject, Injectable, OnInit} from '@angular/core';
+import {Component, Inject, Injectable, OnDestroy, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 
 import {UserSt} from '../../../../shared/object/user-st';
-import {RestApiService} from '../services/restApi.service';
-import {AdminManagerPageComponent, userConfirmRemove} from '../../../admin-manager-page/admin-manager-page.component';
+import {AdminRestApiService} from '../services/adminRestApi.service';
 import {Subscription} from 'rxjs';
 
 
@@ -16,13 +15,14 @@ import {Subscription} from 'rxjs';
 
 
 
-export class DialogOverviewComponent implements OnInit {
+export class DialogOverviewComponent implements OnInit, OnDestroy{
 
 
-
+  users: UserSt[] = [];
+  dSub!: Subscription;
 
   constructor(
-    private restApiService: RestApiService,
+    private restApiService: AdminRestApiService,
     public dialogRef: MatDialogRef<DialogOverviewComponent>,
     @Inject(MAT_DIALOG_DATA) public data: UserSt ) {}
 
@@ -32,11 +32,33 @@ export class DialogOverviewComponent implements OnInit {
   }
 
 
-  onYesClick(id: string): void {
-     console.log( ' yes on click id = ', this.data.id);
 
-  }
  ngOnInit(): void {
  }
 
+// remove(id: string) {
+//   this.dSub = this.restApiService.remove(id).subscribe(() => {
+//     this.users = this.users.filter(user => user.id !== id);
+//   });
+//   console.log(id + 'remove bottom');
+//   this.dialogRef.close();
+//
+//   }
+  ngOnDestroy() {
+    this.dialogRef.close();
+    if (this.dSub) {
+
+      this.dSub.unsubscribe();
+      console.log('End delete');
+      location.reload();
+    }
+  }
+  onYesClick(id: string): void {
+    console.log( ' yes on click id = ', this.data.id);
+    this.dSub = this.restApiService.remove(id).subscribe(() => {
+      this.users = this.users.filter(user => user.id !== id);
+    });
+    console.log(id + 'remove bottom');
+    this.dialogRef.close();
+  }
 }

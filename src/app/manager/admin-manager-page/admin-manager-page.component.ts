@@ -1,5 +1,5 @@
 import {Component, HostListener, Injectable, OnDestroy, OnInit} from '@angular/core';
-import {RestApiService} from '../shared/components/services/restApi.service';
+import {AdminRestApiService} from '../shared/components/services/adminRestApi.service';
 import {UserSt} from '../../shared/object/user-st';
 import {MatTableDataSource} from '@angular/material/table';
 import {Subscription} from 'rxjs';
@@ -29,7 +29,7 @@ export class AdminManagerPageComponent implements OnInit, OnDestroy{
   name!: string;
 
   constructor(
-    public restApiService: RestApiService,
+    public restApiService: AdminRestApiService,
     public dialog: MatDialog,
   ) {}
 

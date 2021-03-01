@@ -7,7 +7,6 @@ import {AdminManagerPageComponent} from './admin-manager-page/admin-manager-page
 import {ListWorkPageComponent} from './list-work-page/list-work-page.component';
 import {CreateUserComponent} from './create-user/create-user.component';
 
-
 const routes: Routes = [{ path: '', component: ManagerLayoutComponent, children: [
     {path: '', redirectTo: '/manager/journal', pathMatch: 'full'},
     { path: 'journal', component: JournalPageComponent},
