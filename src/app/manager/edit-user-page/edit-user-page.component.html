@@ -1,4 +1,5 @@
-<form class="example-form" [formGroup]="form" (ngSubmit)="submit()">
+<div *ngIf="form; else loading">
+<form  class="example-form" [formGroup]="form" (ngSubmit)="submit()">
   <mat-form-field class="example-full-width">
     <mat-label>Company </mat-label>
     <input matInput disabled value="Interprojekt GMBH">
@@ -48,27 +49,22 @@
       </td>
     </tr>
 
-      <mat-form-field class="example-full-width2">
-        <mat-label>Описание:</mat-label>
-        <input matInput placeholder="............." formControlName="prompt">
-      </mat-form-field>
-
+    <mat-form-field class="example-full-width2">
+      <mat-label>Описание:</mat-label>
+      <input matInput placeholder="............." formControlName="prompt">
+    </mat-form-field>
 
 
   </table>
 
   <button mat-stroked-button color="basic"
           type="submit"
-          (click)="submit()">
-    Создать
+          [disabled]="form.invalid || submitted">
+    Изменить
   </button>
-  <button class="btn-btn-right"
-          mat-stroked-button color="basic"
-          type="button"
-          [routerLink]="['/manager','admin-manager']">
-    Отменить
-
-  </button>
-
 </form>
 
+</div>
+<ng-template #loading>
+  <p class="text-center">Идет загрузка...</p>
+</ng-template>

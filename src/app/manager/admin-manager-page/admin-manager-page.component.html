@@ -38,9 +38,9 @@
     <td mat-cell *matCellDef="let users">
       <button  class="bottom-admin"
               mat-raised-button color="primary"
-              type="submit">
-<!--               (click)="remove(users.id)">-->
-
+              type="submit"
+               [routerLink]="['/manager','user', users.id, 'edit']"
+               >
         Изменить
       </button>
     <a mat-button (click)="openDialog( users.id,  users.username)" mat-raised-button color="warn"> Удалить</a>

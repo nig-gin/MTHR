@@ -19,6 +19,7 @@ import { DialogOverviewComponent } from './shared/components/dialog-overview/dia
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import { CreateUserComponent } from './create-user/create-user.component';
+import { EditUserPageComponent } from './edit-user-page/edit-user-page.component';
 
 
 
@@ -31,6 +32,7 @@ import { CreateUserComponent } from './create-user/create-user.component';
     JournalPageComponent,
     DialogOverviewComponent,
     CreateUserComponent,
+    EditUserPageComponent,
 
   ],
 
