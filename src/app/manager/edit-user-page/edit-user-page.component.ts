@@ -37,7 +37,9 @@ export class EditUserPageComponent implements OnInit, OnDestroy {
           fullName: new FormControl(user.fullName, Validators.required),
           categoria: new FormControl(user.categoria, Validators.required),
           username: new FormControl(user.username, Validators.required),
-          password: new FormControl(user.password, Validators.required),
+          password: new FormControl(user.password, [
+            Validators.minLength(8) ,
+            Validators.required]) ,
           email: new FormControl(user.email, Validators.required),
           phone: new FormControl(user.phone, Validators.required),
           prompt: new FormControl(user.prompt, Validators.required),

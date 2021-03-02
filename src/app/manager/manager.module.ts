@@ -20,6 +20,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { EditUserPageComponent } from './edit-user-page/edit-user-page.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 
@@ -46,7 +48,9 @@ import { EditUserPageComponent } from './edit-user-page/edit-user-page.component
     MatDialogModule,
     FormsModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatGridListModule,
+    MatProgressBarModule
   ],
   exports: [RouterModule],
   providers: [AdminRestApiService],

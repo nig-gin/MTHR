@@ -7,5 +7,5 @@ export interface Mechanisms {
   reglamengWork: string;
   date: Date;
   executor: string;
-  material: Material;
+  material: string;
 };

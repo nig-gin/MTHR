@@ -21,11 +21,13 @@ export class AdminManagerPageComponent implements OnInit, OnDestroy{
 
   pSub!: Subscription;
   dSub!: Subscription;
-   users: UserSt[] = [];
+  users: UserSt[] = [];
   trusted!: boolean;
+
   displayedColumns: string[] = ['username', 'categoria', 'fullName',
     'email', 'password', 'phone', 'prompt', 'act'];
-  username!: [string];
+
+  // username!: [string];
   name!: string;
 
   constructor(

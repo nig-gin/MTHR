@@ -22,7 +22,9 @@ export class CreateUserComponent implements OnInit {
       fullName: new FormControl(null, Validators.required),
       categoria: new FormControl(null, Validators.required),
       username: new FormControl(null, Validators.required),
-      password: new FormControl(null, Validators.required),
+      password: new FormControl(null, [
+        Validators.minLength(8) ,
+        Validators.required]) ,
       email: new FormControl(null, Validators.required),
       phone: new FormControl(null, Validators.required),
       prompt: new FormControl(null, Validators.required),

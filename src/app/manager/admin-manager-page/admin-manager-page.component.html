@@ -4,45 +4,45 @@
 <div *ngIf="users.length; else loading">
 <table  mat-table [dataSource]="users" class="mat-elevation-z9">
 
-  <ng-container matColumnDef="username">
-    <th mat-header-cell *matHeaderCellDef> Логин </th>
-    <td mat-cell *matCellDef="let users"> {{users.username}} </td>
+  <ng-container  matColumnDef="username">
+    <th mat-header-cell *matHeaderCellDef class="text-left"> Логин </th>
+    <td mat-cell  *matCellDef="let users" class="text-left"> {{users.username}} </td>
   </ng-container>
   <ng-container matColumnDef="categoria">
-    <th mat-header-cell *matHeaderCellDef> Должность </th>
-    <td mat-cell *matCellDef="let users"> {{users.categoria}} </td>
+    <th mat-header-cell *matHeaderCellDef class="text-center"> Должность </th>
+    <td mat-cell *matCellDef="let users"  class="text-center"> {{users.categoria}} </td>
   </ng-container>
   <ng-container matColumnDef="fullName">
-    <th mat-header-cell *matHeaderCellDef> ФИО </th>
-    <td mat-cell *matCellDef="let users"> {{users.fullName}} </td>
+    <th mat-header-cell *matHeaderCellDef class="text-center"> ФИО </th>
+    <td mat-cell *matCellDef="let users" class="text-center"> {{users.fullName}} </td>
   </ng-container>
   <ng-container matColumnDef="email">
-    <th mat-header-cell *matHeaderCellDef> Почта </th>
-    <td mat-cell *matCellDef="let users"> {{users.email}} </td>
+    <th mat-header-cell *matHeaderCellDef class="text-center" > Почта </th>
+    <td mat-cell *matCellDef="let users" class="text-center"> {{users.email}} </td>
   </ng-container>
   <ng-container matColumnDef="password">
-    <th mat-header-cell *matHeaderCellDef> Пароль </th>
-    <td mat-cell *matCellDef="let users"> {{users.password}} </td>
+    <th mat-header-cell *matHeaderCellDef class="text-center"> Пароль </th>
+    <td mat-cell *matCellDef="let users" class="text-center"> {{users.password}} </td>
   </ng-container>
   <ng-container matColumnDef="phone">
-    <th mat-header-cell *matHeaderCellDef> Номер телефона </th>
-    <td mat-cell *matCellDef="let users"> {{users.phone}} </td>
+    <th mat-header-cell *matHeaderCellDef class="text-center"> Номер телефона </th>
+    <td mat-cell *matCellDef="let users" class="text-center"> {{users.phone}} </td>
   </ng-container>
   <ng-container matColumnDef="prompt">
-    <th mat-header-cell *matHeaderCellDef> Подсказка </th>
-    <td mat-cell *matCellDef="let users"> {{users.prompt}} </td>
+    <th mat-header-cell *matHeaderCellDef class="text-center"> Подсказка </th>
+    <td mat-cell *matCellDef="let users" class="text-center"> {{users.prompt}} </td>
   </ng-container>
 
   <ng-container matColumnDef="act">
-    <th mat-header-cell *matHeaderCellDef> Действие </th>
-    <td mat-cell *matCellDef="let users">
-      <button  class="bottom-admin"
+    <th mat-header-cell *matHeaderCellDef class="text-right"> Действие </th>
+    <td mat-cell *matCellDef="let users" class="text-right">
+      <a  class="bottom-admin"
               mat-raised-button color="primary"
               type="submit"
                [routerLink]="['/manager','user', users.id, 'edit']"
                >
         Изменить
-      </button>
+      </a>
     <a mat-button (click)="openDialog( users.id,  users.username)" mat-raised-button color="warn"> Удалить</a>
       <!--         (click)="remove(users.id)">Удалить</a>-->
 
@@ -52,7 +52,7 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 </div>
-<div>
+<div *ngIf="users.length">
   <br>
 
   <a
@@ -60,6 +60,6 @@
 </div>
 
 
-<ng-template #loading>
-  <p class="text-center">Идет загрузка...</p>
+<ng-template #loading >
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 </ng-template>

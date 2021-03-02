@@ -1,31 +1,22 @@
-
-<!--<div class="card">-->
-<!--  <table>-->
-<!--    <thead>-->
-<!--    <tr>-->
-<!--      <td>№ </td>-->
-<!--      <td>ФИО  </td>-->
-<!--      <td>Логин</td>-->
-<!--      <td>Пароль </td>-->
-<!--      <td> Должность </td>-->
-<!--      <td> МобТел </td>-->
-
-<!--    </tr>-->
-<!--    </thead>-->
-<!--    <tbody>-->
-<!--    &lt;!&ndash;    &ndash;&gt;-->
-<!--    &lt;!&ndash;<tr *ngFor="let user of restApiService.userSts; let idx =index">&ndash;&gt;-->
-
-<!--    &lt;!&ndash;      <td>{{idx+1}}</td>&ndash;&gt;-->
-<!--    &lt;!&ndash;      <td>{{user.id}}</td>&ndash;&gt;-->
-<!--    &lt;!&ndash;      <td>{{user.fullName}}</td>&ndash;&gt;-->
-<!--    &lt;!&ndash;      <td>{{user.position}}</td>&ndash;&gt;-->
-<!--    &lt;!&ndash;      <td>{{user.username}}</td>&ndash;&gt;-->
-<!--    &lt;!&ndash;      <td>{{user.password}}</td>&ndash;&gt;-->
-<!--    &lt;!&ndash;      <td>{{user.phone}}</td>&ndash;&gt;-->
-<!--    &lt;!&ndash;      <td>{{user.categoria}}</td>&ndash;&gt;-->
-<!--    &lt;!&ndash;      <td>{{user.prompt}}</td>&ndash;&gt;-->
-<!--    &lt;!&ndash;    </tr>&ndash;&gt;-->
-<!--    </tbody>-->
-<!--  </table>-->
-<!--</div>-->
+<div>
+<form>
+  <mat-form-field appearance="fill">
+    <mat-label>Выбор груп:</mat-label>
+    <mat-select [(ngModel)]="selectedValue" name="food">
+      <mat-option *ngFor="let food of foods" [value]="food.value">
+        {{food.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <p> Selected food: {{selectedValue}} </p>
+</form>
+</div>
+<div>
+ <table mat-table [dataSource]="" class="mat-elevation-z9">
+  <ng-container  matColumnDef="username">
+    <th mat-header-cell *matHeaderCellDef class="text-left"> Логин </th>
+    <td mat-cell  *matCellDef="let users" class="text-left"> {{users.username}} </td>
+  </ng-container>
+sad
+</table>
+</div>
