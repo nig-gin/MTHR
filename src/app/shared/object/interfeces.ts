@@ -2,16 +2,11 @@ import {Priority} from './priority';
 import {Category} from './category';
 
 export interface jourInterface {
-
-  category?: Category;
-  priority?: Priority;
-
-
-
-  completed: boolean;
+  foviv: number;
+  name_work: string;
   date: Date;
-  id: string;
-  title: string;
-
+  user_id: string;
+  category_id: number;
+  mex_id: number;
 
 }

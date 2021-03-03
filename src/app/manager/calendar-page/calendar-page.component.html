@@ -1,50 +1,48 @@
+<div>
+  <div>
+    <form [(ngModel)]="selectedValue" )]>
+      <mat-form-field appearance="fill">
+        <mat-label>Выбор груп:</mat-label>
+        <mat-select [(ngModel)]="selectedValue" name="category" >
+          <mat-option *ngFor="let category of categories" [value]="category.category_id">
+            {{category.title}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <p> Selected food: {{selectedValue}} </p>
+    </form>
+  </div>
 
 
-<!--- Note that these columns can be defined in any order.
-      The actual rendered columns are set as a property on the row definition" -->
+  <table  mat-table [dataSource]="reglamentsWork"   class="mat-elevation-z9">
 
+    <ng-container matColumnDef="foviv">
+      <th mat-header-cell *matHeaderCellDef> Задание часов </th>
+      <td mat-cell *matCellDef="let table"> {{table.foviv}} </td>
+    </ng-container>
+    <ng-container matColumnDef="name_work">
+      <th mat-header-cell *matHeaderCellDef> Регламентные работы </th>
+      <td mat-cell *matCellDef="let table"> {{table.name_work}} </td>
+    </ng-container>
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef> Дата </th>
+      <td mat-cell *matCellDef="let table"> {{table.date| date:'short'}} </td>
+    </ng-container>
+    <ng-container matColumnDef="user_id">
+      <th mat-header-cell *matHeaderCellDef  > Пользователь </th>
+      <td mat-cell *matCellDef="let table"> {{table.user_id}} </td>
+    </ng-container>
+    <ng-container matColumnDef="category_id">
+      <th mat-header-cell *matHeaderCellDef> Категория мех </th>
+      <td mat-cell *matCellDef="let table"> {{table.category_id}} </td>
+    </ng-container>
+    <ng-container matColumnDef="mex_id">
+      <th mat-header-cell *matHeaderCellDef>  Мех ИД</th>
+      <td mat-cell *matCellDef="let table"> {{table.mex_id}} </td>
+    </ng-container>
 
-<table  mat-table [dataSource]="users" class="mat-elevation-z9">
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
 
-  <ng-container matColumnDef="username">
-    <th mat-header-cell *matHeaderCellDef> Логин </th>
-    <td mat-cell *matCellDef="let users"> {{users.username}} </td>
-  </ng-container>
-  <ng-container matColumnDef="categoria">
-    <th mat-header-cell *matHeaderCellDef> Должность </th>
-    <td mat-cell *matCellDef="let users"> {{users.categoria}} </td>
-  </ng-container>
-  <ng-container matColumnDef="fullName">
-    <th mat-header-cell *matHeaderCellDef> ФИО </th>
-    <td mat-cell *matCellDef="let users"> {{users.fullName}} </td>
-  </ng-container>
-  <ng-container matColumnDef="email">
-    <th mat-header-cell *matHeaderCellDef > Почта </th>
-    <td mat-cell *matCellDef="let users"> {{users.email}} </td>
-  </ng-container>
-  <ng-container matColumnDef="password">
-    <th mat-header-cell *matHeaderCellDef> Пароль </th>
-    <td mat-cell *matCellDef="let users"> {{users.password}} </td>
-  </ng-container>
-  <ng-container matColumnDef="phone">
-  <th mat-header-cell *matHeaderCellDef> Номер телефона </th>
-  <td mat-cell *matCellDef="let users"> {{users.phone}} </td>
-  </ng-container>
-  <ng-container matColumnDef="prompt">
-    <th mat-header-cell *matHeaderCellDef> Подсказка </th>
-    <td mat-cell *matCellDef="let users"> {{users.prompt}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="act">
-    <th mat-header-cell *matHeaderCellDef> Действие </th>
-    <td mat-cell *matCellDef="let users">
-      <button class="bottom-admin" mat-raised-button color="primary"  type="submit">
-        Изменить
-      </button>
-      <a class="bottom-admin" mat-raised-button color="warn" (click)="remove(users.id)">Удалить</a>
-     </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+</div>

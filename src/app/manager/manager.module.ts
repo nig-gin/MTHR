@@ -22,6 +22,9 @@ import { CreateUserComponent } from './create-user/create-user.component';
 import { EditUserPageComponent } from './edit-user-page/edit-user-page.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+
 
 
 
@@ -34,9 +37,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     JournalPageComponent,
     DialogOverviewComponent,
     CreateUserComponent,
-    EditUserPageComponent,
-
-  ],
+    EditUserPageComponent],
 
   imports: [
     CommonModule,
@@ -50,7 +51,9 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatInputModule,
     ReactiveFormsModule,
     MatGridListModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   exports: [RouterModule],
   providers: [AdminRestApiService],
