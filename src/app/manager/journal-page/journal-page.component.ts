@@ -3,10 +3,10 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {jourInterface} from '../../shared/object/interfeces';
 import {AdminRestApiService} from '../shared/components/services/adminRestApi.service';
 import {Subscription} from 'rxjs';
-import {MahanismGroup} from '../../shared/object/mahanism-group';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatSort} from '@angular/material/sort';
 import {MatPaginator} from '@angular/material/paginator';
+import {JournalRestApiService} from '../shared/components/services/journalRestApi.service';
 
 
 
@@ -32,19 +32,24 @@ const NAMES: string[] = [
   templateUrl: './journal-page.component.html',
   styleUrls: ['./journal-page.component.scss']
 })
-export class JournalPageComponent  {
-  displayedColumns: string[] = ['id', 'name', 'progress', 'color'];
-  dataSource: MatTableDataSource<UserData>;
+export class JournalPageComponent implements OnInit{
+  displayedColumns: string[] = ['mexanism', 'hour', 'title', 'user'];
+  dataSource!: MatTableDataSource<jourInterface>;
+  journals: jourInterface[] = [];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor() {
-    // Create 100 users
-    const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
+  constructor(  public restApiService: JournalRestApiService,
+  ) {  }
 
-    // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users);
+
+  ngOnInit(): void {
+    this.restApiService.getAll().subscribe(journals => {
+      this.journals = journals;
+      console.log('journal get:', this.journals);
+      this.dataSource = new MatTableDataSource(this.journals);
+    });
   }
 
   ngAfterViewInit() {
@@ -56,10 +61,13 @@ export class JournalPageComponent  {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
+
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
   }
+
+
 }
 
 /** Builds and returns a new User. */
@@ -69,7 +77,7 @@ function createNewUser(id: number): UserData {
 
   return {
     id: id.toString(),
-    name: name,
+    name,
     progress: Math.round(Math.random() * 100).toString(),
     color: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
   };

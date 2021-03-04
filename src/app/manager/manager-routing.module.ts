@@ -7,6 +7,7 @@ import {AdminManagerPageComponent} from './admin-manager-page/admin-manager-page
 import {ListWorkPageComponent} from './list-work-page/list-work-page.component';
 import {CreateUserComponent} from './create-user/create-user.component';
 import {EditUserPageComponent} from './edit-user-page/edit-user-page.component';
+import {CreateReglamWorksPageComponent} from './journal-page/create-reglam-works-page/create-reglam-works-page.component';
 
 const routes: Routes = [{ path: '', component: ManagerLayoutComponent, children: [
     {path: '', redirectTo: '/manager/journal', pathMatch: 'full'},
@@ -15,7 +16,8 @@ const routes: Routes = [{ path: '', component: ManagerLayoutComponent, children:
     { path: 'list-work', component: ListWorkPageComponent},
     { path: 'admin-manager', component: AdminManagerPageComponent},
     {path: 'create-user', component: CreateUserComponent},
-    {path: 'user/:id/edit', component: EditUserPageComponent}
+    {path: 'user/:id/edit', component: EditUserPageComponent},
+    {path: 'journal/create-work', component: CreateReglamWorksPageComponent}
   ]}
    ];
 

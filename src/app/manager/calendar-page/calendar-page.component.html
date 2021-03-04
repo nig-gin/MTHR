@@ -1,48 +1,54 @@
-<div>
-  <div>
-    <form [(ngModel)]="selectedValue" )]>
-      <mat-form-field appearance="fill">
-        <mat-label>Выбор груп:</mat-label>
-        <mat-select [(ngModel)]="selectedValue" name="category" >
-          <mat-option *ngFor="let category of categories" [value]="category.category_id">
-            {{category.title}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <p> Selected food: {{selectedValue}} </p>
-    </form>
-  </div>
+<!--<div>-->
+<!--  <div>-->
+<!--    <form [(ngModel)]="selectedValue" >-->
+<!--      <mat-form-field appearance="fill">-->
+<!--        <mat-label>Выбор груп:</mat-label>-->
+<!--        <mat-select [(ngModel)]="selectedValue" name="category" >-->
+<!--          <mat-option *ngFor="let category of categories" [value]="category.category_id">-->
+<!--            {{category.title}}-->
+<!--          </mat-option>-->
+<!--        </mat-select>-->
+<!--      </mat-form-field>-->
+<!--      <p> Selected food: {{selectedValue}} </p>-->
+<!--      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>-->
+<!--    </form>-->
+
+<!--  </div>-->
 
 
-  <table  mat-table [dataSource]="reglamentsWork"   class="mat-elevation-z9">
 
-    <ng-container matColumnDef="foviv">
-      <th mat-header-cell *matHeaderCellDef> Задание часов </th>
-      <td mat-cell *matCellDef="let table"> {{table.foviv}} </td>
-    </ng-container>
-    <ng-container matColumnDef="name_work">
-      <th mat-header-cell *matHeaderCellDef> Регламентные работы </th>
-      <td mat-cell *matCellDef="let table"> {{table.name_work}} </td>
-    </ng-container>
-    <ng-container matColumnDef="date">
-      <th mat-header-cell *matHeaderCellDef> Дата </th>
-      <td mat-cell *matCellDef="let table"> {{table.date| date:'short'}} </td>
-    </ng-container>
-    <ng-container matColumnDef="user_id">
-      <th mat-header-cell *matHeaderCellDef  > Пользователь </th>
-      <td mat-cell *matCellDef="let table"> {{table.user_id}} </td>
-    </ng-container>
-    <ng-container matColumnDef="category_id">
-      <th mat-header-cell *matHeaderCellDef> Категория мех </th>
-      <td mat-cell *matCellDef="let table"> {{table.category_id}} </td>
-    </ng-container>
-    <ng-container matColumnDef="mex_id">
-      <th mat-header-cell *matHeaderCellDef>  Мех ИД</th>
-      <td mat-cell *matCellDef="let table"> {{table.mex_id}} </td>
-    </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
 
-</div>
+
+<!--  <table  mat-table [dataSource]="reglamentsWork"   class="mat-elevation-z9">-->
+
+<!--    <ng-container matColumnDef="foviv">-->
+<!--      <th mat-header-cell *matHeaderCellDef> Задание часов </th>-->
+<!--      <td mat-cell *matCellDef="let table"> {{table.foviv}} </td>-->
+<!--    </ng-container>-->
+<!--    <ng-container matColumnDef="name_work">-->
+<!--      <th mat-header-cell *matHeaderCellDef> Регламентные работы </th>-->
+<!--      <td mat-cell *matCellDef="let table"> {{table.name_work}} </td>-->
+<!--    </ng-container>-->
+<!--    <ng-container matColumnDef="date">-->
+<!--      <th mat-header-cell *matHeaderCellDef> Дата </th>-->
+<!--      <td mat-cell *matCellDef="let table"> {{table.date| date:'short'}} </td>-->
+<!--    </ng-container>-->
+<!--    <ng-container matColumnDef="user_id">-->
+<!--      <th mat-header-cell *matHeaderCellDef  > Пользователь </th>-->
+<!--      <td mat-cell *matCellDef="let table"> {{table.user_id}} </td>-->
+<!--    </ng-container>-->
+<!--    <ng-container matColumnDef="category_id">-->
+<!--      <th mat-header-cell *matHeaderCellDef> Категория мех </th>-->
+<!--      <td mat-cell *matCellDef="let table"> {{table.category_id}} </td>-->
+<!--    </ng-container>-->
+<!--    <ng-container matColumnDef="mex_id">-->
+<!--      <th mat-header-cell *matHeaderCellDef>  Мех ИД</th>-->
+<!--      <td mat-cell *matCellDef="let table"> {{table.mex_id}} </td>-->
+<!--    </ng-container>-->
+
+<!--    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
+<!--    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>-->
+<!--  </table>-->
+
+<!--</div>-->
