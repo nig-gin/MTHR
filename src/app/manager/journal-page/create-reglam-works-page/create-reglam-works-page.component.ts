@@ -20,11 +20,15 @@ export class CreateReglamWorksPageComponent implements OnInit {
       title: new FormControl(null, Validators.required),
       user: new FormControl(null, Validators.required),
       category: new FormGroup({
-
+          id: new FormControl(null, Validators.required),
+         title: new FormControl(null, Validators.required),
       }),
 
 
     })
   }
 
+  submit() {
+
+  }
 }

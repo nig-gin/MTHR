@@ -3,12 +3,12 @@ import {Category} from './category';
 import {Mechanisms} from './mechanisms';
 
 export interface jourInterface {
+  mexanism: string;
+  hour: string;
   id: number;
   title: string;
-  hour: string;
   date: Date;
   category: Category;
-  mexanism: string;
   user: string;
 
 }
