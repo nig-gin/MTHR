@@ -8,70 +8,80 @@
   </mat-form-field>
 
   <table class="example-full-width" cellspacing="0">
+
     <tr>
       <td>
         <mat-form-field class="example-full-width">
-          <mat-label>ФИО:</mat-label>
-          <input matInput id="fullname1"  formControlName="fullName" >
-        </mat-form-field>
-      </td>
-      <td>
-        <mat-form-field class="example-full-width">
-          <mat-label>Должность:</mat-label>
-          <input matInput formControlName="categoria">
+          <mat-label>Моточасы:</mat-label>
+          <input matInput formControlName="hour" placeholder="Введите задание поточасов">
         </mat-form-field>
       </td>
     </tr>
     <tr>
       <td>
         <mat-form-field class="example-full-width">
-          <mat-label>Логин:</mat-label>
-          <input matInput  formControlName="username">
-        </mat-form-field>
-      </td>
-      <td>
-        <mat-form-field class="example-full-width">
-          <mat-label>Пароль:</mat-label>
-          <input matInput formControlName="password" ngModel minlength="4">
+          <mat-label>Работы:</mat-label>
+          <input matInput formControlName="title" placeholder="Провести ТО">
         </mat-form-field>
       </td>
     </tr>
+
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width" >
+          <mat-label>id:</mat-label>
+          <input matInput formControlName="caid">
+        </mat-form-field>
+      </td>
+    </tr>
+
     <tr>
       <td>
         <mat-form-field class="example-full-width">
-          <mat-label>Почта:</mat-label>
-          <input matInput placeholder="@gmail.com" formControlName="email">
-        </mat-form-field>
-      </td>
-      <td>
-        <mat-form-field class="example-full-width">
-          <mat-label>Телефон:</mat-label>
-          <input matInput placeholder="+380(**)-123-45-67" formControlName="phone">
+          <mat-label>catitle:</mat-label>
+          <input matInput formControlName="catitle">
         </mat-form-field>
       </td>
     </tr>
 
-    <mat-form-field class="example-full-width2">
-      <mat-label>Описание:</mat-label>
-      <input matInput placeholder="............." formControlName="prompt">
-    </mat-form-field>
-
-
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>механізм:</mat-label>
+          <input matInput placeholder="вентелятор" formControlName="mexanism">
+        </mat-form-field>
+      </td>
+    </tr>
 
   </table>
+
+
+  <mat-form-field class="example-full-width2">
+    <mat-label>Пользователь:</mat-label>
+    <input matInput placeholder="............." formControlName="user">
+  </mat-form-field>
+
+
+  <br>
+
+
+
+
+
 
   <button mat-stroked-button color="basic"
           type="submit"
           (click)="submit()">
     Создать
   </button>
-  <button class="btn-btn-right"
-          mat-stroked-button color="basic"
-          type="button"
-          [routerLink]="['/manager','admin-manager']">
-    Отменить
 
-  </button>
+
+<!--  <button class="btn-btn-right"-->
+<!--          mat-stroked-button color="basic"-->
+<!--          type="button"-->
+<!--          [routerLink]="['/manager','admin-manager']">-->
+<!--    Отменить-->
+<!--  </button>-->
 
 </form>
 

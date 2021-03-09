@@ -31,5 +31,18 @@ constructor(private httpClient: HttpClient) {}
   }
 
 
+ create(reglam: jourInterface): Observable<jourInterface> {
+  return this.httpClient.post<jourInterface>(`${this.url}/works/add`, reglam)
+    .pipe(
+      map((reglams: jourInterface) => reglams as jourInterface)
 
+    );
+
+ }
+  addHero(hero: Hero): Observable<Hero> {
+    return this.http.post<Hero>(this.heroesUrl, hero, httpOptions)
+      .pipe(
+        catchError(this.handleError('addHero', hero))
+      );
+  }
 }

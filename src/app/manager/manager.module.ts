@@ -25,6 +25,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import { CreateReglamWorksPageComponent } from './journal-page/create-reglam-works-page/create-reglam-works-page.component';
+import {JournalRestApiService} from './shared/components/services/journalRestApi.service';
 
 
 
@@ -58,6 +59,6 @@ import { CreateReglamWorksPageComponent } from './journal-page/create-reglam-wor
     MatSortModule
   ],
   exports: [RouterModule],
-  providers: [AdminRestApiService],
+  providers: [AdminRestApiService, JournalRestApiService],
 })
 export class ManagerModule { }
