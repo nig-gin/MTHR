@@ -39,7 +39,7 @@ export class AdminRestApiService {
   // getById(id: string){
   //   return this.httpClient.get(`${environment.fbDbUrl}/posts/${id}.json`)
   // }
-  getById(id: string): Observable<UserSt> {
+  getById(id: number): Observable<UserSt> {
     return this.httpClient.get<UserSt>(`${environment.fbDbUrl}/users/${id}.json`)
       .pipe(map((user: UserSt) => {
         return {
@@ -48,7 +48,7 @@ export class AdminRestApiService {
       }));
   }
 
-  remove(id: string): Observable<void> {
+  remove(id: number): Observable<void> {
     console.log('remove class', id);
     return this.httpClient.delete<void>(`${environment.fbDbUrl}/users/${id}.json`);
   }

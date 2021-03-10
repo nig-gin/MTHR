@@ -29,20 +29,20 @@ export class EditUserPageComponent implements OnInit, OnDestroy {
     this.route.params
       .pipe(
         switchMap((params: Params) => {
-          return this.adminRestApiService.getById(params['id']);
+          return this.adminRestApiService.getById(params.id);
         })
       ).subscribe((user: UserSt) => {
         this.form = new FormGroup({
           id: new FormControl(user.id),
-          fullName: new FormControl(user.fullName, Validators.required),
-          categoria: new FormControl(user.categoria, Validators.required),
+          fullName: new FormControl(user.fullname, Validators.required),
+          position: new FormControl(null, Validators.required),
           username: new FormControl(user.username, Validators.required),
           password: new FormControl(user.password, [
             Validators.minLength(8) ,
             Validators.required]) ,
-          email: new FormControl(user.email, Validators.required),
+          email: new FormControl(null, Validators.required),
           phone: new FormControl(user.phone, Validators.required),
-          prompt: new FormControl(user.prompt, Validators.required),
+          prompt: new FormControl(null, Validators.required),
         });
     });
   }
@@ -64,13 +64,11 @@ export class EditUserPageComponent implements OnInit, OnDestroy {
     this.uSub = this.adminRestApiService.update({
       ...this.user,
       id: this.form.value.id,
-      fullName: this.form.value.fullName,
-      categoria: this.form.value.categoria,
+      fullname: this.form.value.fullName,
       username: this.form.value.username,
       password: this.form.value.password,
-      email: this.form.value.email,
       phone: this.form.value.phone,
-      prompt: this.form.value.prompt
+      position: this.form.value.position
     }).subscribe(() => {
       this.submitted = false;
 

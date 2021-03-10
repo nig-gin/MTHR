@@ -2,15 +2,12 @@
 
 export interface UserSt {
 
-  id: string;
-  categoria: string;
-  email: string;
-  fullName: string;
-  password: string;
-  phone: string;
-  position: string;
-  prompt: string; /*подсказка*/
-  username: string;
+    id?: number;
+    fullname: string;
+    password: string;
+    phone: string;
+    position: string;
+    username: string;
 
 }
 export interface FbCreateResponse {

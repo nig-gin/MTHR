@@ -38,15 +38,11 @@ export class CreateUserComponent implements OnInit {
     }
 
     const user: UserSt = {
-      id: '',
-      fullName: this.form.value.fullName,
-      categoria: this.form.value.categoria,
+      fullname: this.form.value.fullName,
       username: this.form.value.username,
       password: this.form.value.password,
-      email: this.form.value.email,
       phone: this.form.value.phone,
-      position: '',
-      prompt: this.form.value.prompt
+      position: this.form.value.categoria,
     };
     this.adminRestApiService.create(user).subscribe(() => {
       this.form.reset();
