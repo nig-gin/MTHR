@@ -10,6 +10,6 @@ export interface UserSt {
     username: string;
 
 }
-export interface FbCreateResponse {
-  name: string;
-}
+// export interface FbCreateResponse {
+//   name: string;
+// }

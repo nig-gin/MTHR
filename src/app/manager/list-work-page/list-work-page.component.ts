@@ -3,7 +3,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 import {MatSort} from '@angular/material/sort';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
-import {UserData} from '../journal-page/journal-page.component';
+// import {UserData} from '../journal-page/journal-page.component';
 export interface PeriodicElement {
   name: string;
   position: number;

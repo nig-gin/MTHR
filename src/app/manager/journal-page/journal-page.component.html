@@ -1,37 +1,39 @@
 
 
 
+<div *ngIf="journals.length; else loading">
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+  </mat-form-field>
 
-<mat-form-field>
-  <mat-label>Filter</mat-label>
-  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
-</mat-form-field>
 
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="mex-hour">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Категория:</th>
+        <td mat-cell *matCellDef="let journal"> {{journal.category.title}} </td>
+    </ng-container>
 
     <!-- ID Column -->
-    <ng-container matColumnDef="mexanism">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> mexanism </th>
-      <td mat-cell *matCellDef="let journal"> {{journal.mexanism}} </td>
+    <ng-container matColumnDef="mex-title">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Задание:</th>
+      <td mat-cell *matCellDef="let journal"> {{journal.hour}} </td>
     </ng-container>
-
-    <!-- Progress Column -->
-    <ng-container matColumnDef="hour">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> hour </th>
-      <td mat-cell *matCellDef="let journal"> {{journal.hour}}% </td>
-    </ng-container>
-
     <!-- Name Column -->
     <ng-container matColumnDef="title">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> title </th>
       <td mat-cell *matCellDef="let journal"> {{journal.title }} </td>
     </ng-container>
-
+    <!-- Progress Column -->
+    <ng-container matColumnDef="hour">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Исполнитель </th>
+      <td mat-cell *matCellDef="let journal "> {{journal.id}} </td>
+    </ng-container>
     <!-- Color Column -->
     <ng-container matColumnDef="user">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> user </th>
-      <td mat-cell *matCellDef="let journal" >{{journal.user}}</td>
+      <td mat-cell *matCellDef="let journal " >{{journal.user}}</td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -41,10 +43,15 @@
     <tr class="mat-row" *matNoDataRow>
       <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
     </tr>
+
   </table>
 
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 
-  <a
-    mat-stroked-button color="basic" [routerLink]="['/journal', 'create-work']">Добавить</a>
+  <a mat-stroked-button color="basic" [routerLink]="['/journal', 'create-work']">Добавить</a>
 </div>
+</div>
+
+<ng-template #loading >
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</ng-template>

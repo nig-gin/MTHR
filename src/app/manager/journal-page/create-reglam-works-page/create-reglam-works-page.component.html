@@ -6,9 +6,7 @@
     <mat-label>Company </mat-label>
     <input matInput disabled value="Interprojekt GMBH">
   </mat-form-field>
-
   <table class="example-full-width" cellspacing="0">
-
     <tr>
       <td>
         <mat-form-field class="example-full-width">
@@ -25,42 +23,64 @@
         </mat-form-field>
       </td>
     </tr>
+<!--    <tr>-->
+<!--      <td>-->
+<!--        <mat-form-field class="example-full-width" >-->
+<!--          <mat-label>caid:</mat-label>-->
+<!--          <input matInput formControlName="caid">-->
+<!--        </mat-form-field>-->
+<!--      </td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--      <td>-->
+<!--        <mat-form-field class="example-full-width">-->
+<!--          <mat-label>catitle:</mat-label>-->
+<!--          <input matInput formControlName="catitle">-->
+<!--        </mat-form-field>-->
+<!--      </td>-->
+<!--    </tr>-->
+        <tr>
+          <td >
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Выберите категорию:</mat-label>
+              <mat-select [(ngModel)]="selectedValueCat"  formControlName="caid">
+                <mat-option *ngFor="let categories of category" [value]="categories.id" >
+                  {{categories.title}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <p> категория: {{selectedValueCat}} </p>
 
-    <tr>
-      <td>
-        <mat-form-field class="example-full-width" >
-          <mat-label>id:</mat-label>
-          <input matInput formControlName="caid">
-        </mat-form-field>
-      </td>
-    </tr>
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Механизм</mat-label>
+              <mat-select  [(ngModel)]="selectedValueMex"  formControlName="mexId">
+                <mat-option *ngFor="let mexanisms of mexanism" [value]="mexanisms.id" >
+                  {{mexanisms.title}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <p> Выбор механизма: {{selectedValueMex}} </p>
+
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Выберите пользователя </mat-label>
+              <mat-select [(ngModel)]="selectedValueUser"  formControlName="userId">
+                <mat-option *ngFor="let users of user" [value]="users.id" >
+                  {{users.username}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <p> Пользователь: {{selectedValueUser}} </p>
+          </td>
 
     <tr>
       <td>
         <mat-form-field class="example-full-width">
-          <mat-label>catitle:</mat-label>
-          <input matInput formControlName="catitle">
+          <mat-label>mexHour:</mat-label>
+          <input matInput placeholder="вентелятор" formControlName="mexHour">
         </mat-form-field>
       </td>
     </tr>
-
-    <tr>
-      <td>
-        <mat-form-field class="example-full-width">
-          <mat-label>механізм:</mat-label>
-          <input matInput placeholder="вентелятор" formControlName="mexanism">
-        </mat-form-field>
-      </td>
-    </tr>
-
   </table>
-
-
-  <mat-form-field class="example-full-width2">
-    <mat-label>Пользователь:</mat-label>
-    <input matInput placeholder="............." formControlName="user">
-  </mat-form-field>
-
 
   <br>
 
@@ -70,8 +90,8 @@
 
 
   <button mat-stroked-button color="basic"
-          type="submit"
-          (click)="submit()">
+          type="submit">
+<!--          (click)="submit()">-->
     Создать
   </button>
 

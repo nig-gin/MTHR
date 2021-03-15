@@ -4,7 +4,7 @@ import {Observable, pipe} from 'rxjs';
 import {jourInterface} from '../../../../shared/object/interfeces';
 import {map} from 'rxjs/operators';
 import {environment} from '../../../../../environments/environment';
-import {FbCreateResponse, UserSt} from '../../../../shared/object/user-st';
+import { UserSt} from '../../../../shared/object/user-st';
 import {userConfirmRemove} from '../../../admin-manager-page/admin-manager-page.component';
 import {Router} from '@angular/router';
 

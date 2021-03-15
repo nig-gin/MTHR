@@ -1,4 +1,4 @@
-import {Component, OnInit, OnDestroy, ViewChild} from '@angular/core';
+import {Component, OnInit, OnDestroy, ViewChild, AfterViewInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {jourInterface} from '../../shared/object/interfeces';
 import {AdminRestApiService} from '../shared/components/services/adminRestApi.service';
@@ -10,85 +10,56 @@ import {JournalRestApiService} from '../shared/components/services/journalRestAp
 
 
 
-export interface UserData {
-  id: string;
-  name: string;
-  progress: string;
-  color: string;
-}
+// export interface UserData {
+//   id: string;
+//   name: string;
+//   progress: string;
+//   color: string;
+// }
 
-/** Constants used to fill up our data base. */
-const COLORS: string[] = [
-  'maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple', 'fuchsia', 'lime', 'teal',
-  'aqua', 'blue', 'navy', 'black', 'gray'
-];
-const NAMES: string[] = [
-  'Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack', 'Charlotte', 'Theodore', 'Isla', 'Oliver',
-  'Isabella', 'Jasper', 'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'
-];
 
 @Component({
   selector: 'app-journal-page',
   templateUrl: './journal-page.component.html',
   styleUrls: ['./journal-page.component.scss']
 })
-export class JournalPageComponent implements OnInit{
-  displayedColumns: string[] = ['mexanism', 'hour', 'title', 'user'];
+export class JournalPageComponent implements  AfterViewInit {
+  displayedColumns: string[] = ['mex-hour', 'mex-title', 'hour', 'title', 'user'];
   dataSource!: MatTableDataSource<jourInterface>;
-  journals: jourInterface[] = [];
-  //
-  // @ViewChild(MatPaginator) paginator!: MatPaginator;
-  // @ViewChild(MatSort) sort!: MatSort;
-  //
-  // constructor(  public restApiService: JournalRestApiService,
-  // ) {  }
-  //
-  //
-  // ngOnInit(): void {
-  //   this.restApiService.getAll().subscribe(journals => {
-  //     this.journals = journals;
-  //     console.log('journal get:', this.journals);
-  //     this.dataSource = new MatTableDataSource(this.journals);
-  //   });
-  //   this.dataSource.paginator = this.paginator;
-  //   this.dataSource.sort = this.sort;
-  // }
-  //
-  // ngAfterViewInit() {
-  //
-  // }
-  //
-  // applyFilter(event: Event) {
-  //   const filterValue = (event.target as HTMLInputElement).value;
-  //   this.dataSource.filter = filterValue.trim().toLowerCase();
-  //
-  //
-  //   if (this.dataSource.paginator) {
-  //     this.dataSource.paginator.firstPage();
-  //   }
-  // }
+  journal: jourInterface[] = [];
 
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatPaginator)  paginator!: MatPaginator;
+  @ViewChild(MatSort)  sort!: MatSort;
 
-  ngOnInit() {
+
+  constructor(  public restApiService: JournalRestApiService,
+  ) {}
+
+  ngAfterViewInit(): void {
     this.restApiService.getAll().subscribe(journals => {
-      this.journals = journals;
-      console.log('journal get:', this.journals);
-      this.dataSource = new MatTableDataSource(this.journals);
+      this.journal = journals;
+      console.log('journal get:', this.journal);
+
     });
+    // this.dataSource = new MatTableDataSource(this.journals);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
-
-  applyFilter(filterValue: string) {
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
     if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
+        this.dataSource.paginator.firstPage();
     }
   }
+
+  // ngOnInit(): void {
+  //
+  // }
+
+
 
 }
 

@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {JournalRestApiService} from '../../shared/components/services/journalRestApi.service';
 import {UserSt} from '../../../shared/object/user-st';
 import {jourInterface} from '../../../shared/object/interfeces';
 import {Data} from '@angular/router';
+import {Category} from '../../../shared/object/category';
+import {Subscription} from 'rxjs';
+import {Mexanisms} from '../../../shared/object/mechanisms';
 
 
 export interface test {
@@ -35,43 +38,79 @@ export interface test {
   templateUrl: './create-reglam-works-page.component.html',
   styleUrls: ['./create-reglam-works-page.component.scss']
 })
-export class CreateReglamWorksPageComponent implements OnInit {
+export class CreateReglamWorksPageComponent implements OnInit, OnDestroy {
   form!: FormGroup;
-
+  pSub!: Subscription;
+  dSub!: Subscription;
+  category: Category[] = [];
+  mexanism: Mexanisms[] = [];
+  user: UserSt[] = [];
+  selectedValueCat!: number;
+  selectedValueMex!: number;
+  selectedValueUser!: number;
   constructor(
     private journalRestApiService: JournalRestApiService,
   ) {
   }
 
   ngOnInit(): void {
+
+
+    this.journalRestApiService.getCategory().subscribe(categories => {
+      this.category = categories;
+      console.log('category get:', this.category);
+      });
+    this.journalRestApiService.getMexanism().subscribe(mexanisms => {
+      this.mexanism = mexanisms;
+      console.log('mexanism get:', this.mexanism);
+    });
+    this.journalRestApiService.getUser().subscribe(users => {
+      this.user = users;
+      console.log('user get:', this.user);
+    });
     this.form = new FormGroup({
       title: new FormControl(null, Validators.required),
       hour: new FormControl(null, Validators.required),
-      caid: new FormControl(null, Validators.required),
+     caid: new FormControl(null, Validators.required),
       catitle: new FormControl(null, Validators.required),
-      mexanism: new FormControl(null, Validators.required),
-      user: new FormControl(null, Validators.required),
+  //    mexanism: new FormControl(null),
+      mexId:  new FormControl(null),
+      mexTitle:  new FormControl(null),
+      mexHour:    new FormControl(null),
+      mexCat: new FormControl(null),
+      userId: new FormControl(null)
     });
   }
-
 
   submit() {
     // if (this.form.invalid) {
     //   return;
     // }
 
-    const reglamWork: test = {
+    const reglamWork: jourInterface = {
       title: this.form.value.title,
       hour: this.form.value.hour,
       date: new Date(),
       category: {
-        id: 1,
-        title: 'vent',
+        id: this.form.value.caid,
+        title: this.form.value.catitle,
       },
       mexanism: {
-        id: 1,
-        title: 'fan1',
-        hour: 10,
+        id: this.form.value.mexId ,
+        title: this.form.value.title,
+        hour: this.form.value.mexHour,
+        category: {
+          id: this.form.value.mexCat,
+          title: '',
+        }
+      },
+      user: {
+        id: this.form.value.userId,
+        fullname: '',
+        password: '',
+        phone: '',
+        position: '',
+        username: '',
       }
     };
     console.log('post req:', reglamWork);
@@ -86,6 +125,15 @@ export class CreateReglamWorksPageComponent implements OnInit {
     //     this.restart = true;
     //   }, 4000);
      });
+  }
+  ngOnDestroy() {
+    if (this.pSub) {
+      this.pSub.unsubscribe();
+    }
+
+    if (this.dSub) {
+      this.dSub.unsubscribe();
+    }
   }
 }
 

@@ -1,6 +1,6 @@
 import {Priority} from './priority';
 import {Category} from './category';
-import {Mechanisms} from './mechanisms';
+import { Mexanisms} from './mechanisms';
 import {UserSt} from './user-st';
 
 export interface jourInterface {
@@ -9,7 +9,7 @@ export interface jourInterface {
   hour: number;
   date: Date;
   category: Category;
-  mexanism: Mechanisms;
+  mexanism: Mexanisms;
   user: UserSt;
   id?: number;
 }
