@@ -1,7 +1,7 @@
 
 
 
-<div *ngIf="journals.length; else loading">
+<div *ngIf="journal.length; else loading">
   <mat-form-field>
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
