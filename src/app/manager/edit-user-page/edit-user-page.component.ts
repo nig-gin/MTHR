@@ -33,16 +33,13 @@ export class EditUserPageComponent implements OnInit, OnDestroy {
         })
       ).subscribe((user: UserSt) => {
         this.form = new FormGroup({
-          id: new FormControl(user.id),
-          fullName: new FormControl(user.fullname, Validators.required),
-          position: new FormControl(null, Validators.required),
+          // id: new FormControl(user.id),
+          fullName: new FormControl(user.fullName, Validators.required),
+          position: new FormControl(user.position, Validators.required),
           username: new FormControl(user.username, Validators.required),
           password: new FormControl(user.password, [
-            Validators.minLength(8) ,
             Validators.required]) ,
-          email: new FormControl(null, Validators.required),
           phone: new FormControl(user.phone, Validators.required),
-          prompt: new FormControl(null, Validators.required),
         });
     });
   }
@@ -54,21 +51,19 @@ export class EditUserPageComponent implements OnInit, OnDestroy {
   }
 
   submit() {
-  //  console.log(this.user.id);
-    if (this.form.invalid) {
+   if (this.form.invalid) {
       return;
     }
 
-    this.submitted = true;
+   this.submitted = true;
 
-    this.uSub = this.adminRestApiService.update({
+   this.uSub = this.adminRestApiService.update({
       ...this.user,
-      id: this.form.value.id,
-      fullname: this.form.value.fullName,
+      // id: this.form.value.id,
+      fullName: this.form.value.fullName,
       username: this.form.value.username,
       password: this.form.value.password,
       phone: this.form.value.phone,
-      position: this.form.value.position
     }).subscribe(() => {
       this.submitted = false;
 

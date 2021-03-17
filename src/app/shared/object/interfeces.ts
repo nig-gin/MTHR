@@ -10,6 +10,15 @@ export interface jourInterface {
   date: Date;
   category: Category;
   mexanism: Mexanisms;
-  user: UserSt;
+  profile: UserSt;
+  id?: number;
+}
+export interface createJournal {
+  title: string;
+  hour: number;
+  date: Date;
+  category?: Category;
+ mexanism?: Mexanisms;
+  profile?: UserSt;
   id?: number;
 }

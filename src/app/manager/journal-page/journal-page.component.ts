@@ -23,27 +23,27 @@ import {JournalRestApiService} from '../shared/components/services/journalRestAp
   templateUrl: './journal-page.component.html',
   styleUrls: ['./journal-page.component.scss']
 })
-export class JournalPageComponent implements  AfterViewInit, OnInit {
-  displayedColumns: string[] = ['mex-hour', 'mex-title', 'hour', 'title', 'user'];
+export class JournalPageComponent implements   OnInit {
+  displayedColumns: string[] = ['mex-cat', 'mex-hour',  'hour', 'title', 'profile', 'edit'];
   dataSource!: MatTableDataSource<jourInterface>;
   journal: jourInterface[] = [];
 
 
   @ViewChild(MatPaginator)  paginator!: MatPaginator;
   @ViewChild(MatSort)  sort!: MatSort;
+
   constructor(  public restApiService: JournalRestApiService,
   ) {}
- ngOnInit(): void {
+
+ ngOnInit() {
    this.restApiService.getAll().subscribe(journals => {
-     this.journal = journals;
-     console.log('journal get:', this.journal);
+     this.dataSource = new MatTableDataSource<jourInterface>(journals);
+     console.log('journal get:', this.dataSource);
+     this.dataSource.paginator = this.paginator;
+     this.dataSource.sort = this.sort;
    });
  }
-  ngAfterViewInit(): void {
-    this.dataSource = new MatTableDataSource(this.journal);
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -52,10 +52,6 @@ export class JournalPageComponent implements  AfterViewInit, OnInit {
         this.dataSource.paginator.firstPage();
     }
   }
-
-  // ngOnInit(): void {
-  //
-  // }
 
 
 

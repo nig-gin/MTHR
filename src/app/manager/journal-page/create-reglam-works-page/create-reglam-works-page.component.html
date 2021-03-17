@@ -64,8 +64,8 @@
             <mat-form-field appearance="fill" class="example-full-width">
               <mat-label>Выберите пользователя </mat-label>
               <mat-select [(ngModel)]="selectedValueUser"  formControlName="userId">
-                <mat-option *ngFor="let users of user" [value]="users.id" >
-                  {{users.username}}
+                <mat-option *ngFor="let usersz of userSts" [value]="usersz.username" >
+                  {{usersz.username}}
                 </mat-option>
               </mat-select>
             </mat-form-field>

@@ -2,11 +2,12 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {JournalRestApiService} from '../../shared/components/services/journalRestApi.service';
 import {UserSt} from '../../../shared/object/user-st';
-import {jourInterface} from '../../../shared/object/interfeces';
+import {createJournal, jourInterface} from '../../../shared/object/interfeces';
 import {Data} from '@angular/router';
 import {Category} from '../../../shared/object/category';
 import {Subscription} from 'rxjs';
 import {Mexanisms} from '../../../shared/object/mechanisms';
+import {formatNumber} from '@angular/common';
 
 
 export interface test {
@@ -14,6 +15,10 @@ export interface test {
     id: number;
     hour: number;
     title: string;
+    category: {
+      id: number;
+      title: string;
+    }
   };
 
   title: string;
@@ -24,14 +29,14 @@ export interface test {
     id: number;
     title: string;
       };
-  // user: {
-  //   id?: number;
-  //   fullname: string;
-  //   password: string;
-  //   phone: string;
-  //   position: string;
-  //   username: string;
-  // };
+  profile: {
+    id?: number;
+    // fullname: string;
+    // password: string;
+    // phone: string;
+    // position: string;
+    // username: string;
+  };
 }
 @Component({
   selector: 'app-create-reglam-works-page',
@@ -44,7 +49,7 @@ export class CreateReglamWorksPageComponent implements OnInit, OnDestroy {
   dSub!: Subscription;
   category: Category[] = [];
   mexanism: Mexanisms[] = [];
-  user: UserSt[] = [];
+  userSts!: UserSt[] ;
   selectedValueCat!: number;
   selectedValueMex!: number;
   selectedValueUser!: number;
@@ -65,8 +70,11 @@ export class CreateReglamWorksPageComponent implements OnInit, OnDestroy {
       console.log('mexanism get:', this.mexanism);
     });
     this.journalRestApiService.getUser().subscribe(users => {
-      this.user = users;
-      console.log('user get:', this.user);
+      this.userSts = users;
+
+      // this.TeacherTable = new MatTableDataSource<Teacher>(alldata.Data.teachers);
+
+      console.log('user get:', this.userSts);
     });
     this.form = new FormGroup({
       title: new FormControl(null, Validators.required),
@@ -87,36 +95,39 @@ export class CreateReglamWorksPageComponent implements OnInit, OnDestroy {
     //   return;
     // }
 
-    const reglamWork: jourInterface = {
+    console.log('Ca ID : ', this.form.value.caid);
+
+    const reglamWork: createJournal = {
       title: this.form.value.title,
       hour: this.form.value.hour,
       date: new Date(),
       category: {
-        id: this.form.value.caid,
-        title: this.form.value.catitle,
+        id: 1,
+        title: '',
       },
       mexanism: {
-        id: this.form.value.mexId ,
-        title: this.form.value.title,
-        hour: this.form.value.mexHour,
+        id: 1,
+        title: '',
+         hour: 100,
         category: {
-          id: this.form.value.mexCat,
+         // id: ,
           title: '',
         }
       },
-      user: {
-        id: this.form.value.userId,
-        fullname: '',
+      profile: {
+        id: this.selectedValueUser ,
+        fullName  : '',
         password: '',
         phone: '',
         position: '',
         username: '',
       }
-    };
+  };
     console.log('post req:', reglamWork);
     this.journalRestApiService.create(reglamWork).subscribe(() => {
-      this.form.reset();
-      //   },
+        this.form.reset();
+      }
+      );
     // (err: HttpErrorResponse) => {
     //   this.isLoginError = true;
     //   console.log(err);
@@ -124,7 +135,8 @@ export class CreateReglamWorksPageComponent implements OnInit, OnDestroy {
     //   setTimeout(() => {
     //     this.restart = true;
     //   }, 4000);
-     });
+
+
   }
   ngOnDestroy() {
     if (this.pSub) {
@@ -136,8 +148,7 @@ export class CreateReglamWorksPageComponent implements OnInit, OnDestroy {
     }
   }
 }
-
-
+//
 
 
 
@@ -173,4 +184,29 @@ export class CreateReglamWorksPageComponent implements OnInit, OnDestroy {
   //     this.form.reset();
   //   });
   // }
-
+//
+// title: this.form.value.title,
+//   hour: this.form.value.hour,
+//   date: new Date(),
+//   category: {
+//   id: this.form.value.caid,
+//     title: '',
+// },
+// mexanism: {
+//   id: this.form.value.mexId ,
+//     title: '',
+//     // hour: 0,
+//     category: {
+//     // id: ,
+//     title: '',
+//   }
+// },
+// profile: {
+//   id: this.form.value.userId,
+//     fullName  : '',
+//     password: '',
+//     phone: '',
+//     position: '',
+//     username: '',
+// }
+// };

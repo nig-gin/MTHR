@@ -12,19 +12,13 @@ import {Router} from '@angular/router';
 
 export class AdminRestApiService {
 
-
+url = 'http://192.168.1.17:8080';
 
   constructor(private httpClient: HttpClient,
               private router: Router, ){}
 
-  create(user: UserSt): Observable<UserSt> {
-    return this.httpClient.post<UserSt>(`${environment.fbDbUrl}/users.json`, user)
-     .pipe(
-        map((users: UserSt) => users as UserSt)
-      );
-   }
   getAll(): Observable<UserSt[]> {
-    return this.httpClient.get(`${environment.fbDbUrl}/users.json`)
+    return this.httpClient.get(`${this.url}/user/all`)
       .pipe(map((response: {[key: string]: any}) => {
         return Object
           .keys(response)
@@ -36,28 +30,65 @@ export class AdminRestApiService {
         console.log('response', response);
       }));
   }
-  // getById(id: string){
-  //   return this.httpClient.get(`${environment.fbDbUrl}/posts/${id}.json`)
-  // }
+
+  create(user: UserSt): Observable<UserSt> {
+    return this.httpClient.post<UserSt>(`${this.url}/user/add`, user)
+     .pipe(
+        map((users: UserSt) => users as UserSt)
+      );
+   }
+
   getById(id: number): Observable<UserSt> {
-    return this.httpClient.get<UserSt>(`${environment.fbDbUrl}/users/${id}.json`)
+    return this.httpClient.get<UserSt>((`${this.url}/user/id/${id}`))
       .pipe(map((user: UserSt) => {
         return {
           ...user, id
         };
       }));
   }
-
-  remove(id: number): Observable<void> {
-    console.log('remove class', id);
-    return this.httpClient.delete<void>(`${environment.fbDbUrl}/users/${id}.json`);
-  }
-
- update(user: UserSt): Observable<UserSt>{
-   // console.log(user.id);
-    return this.httpClient.patch<UserSt>(`${environment.fbDbUrl}/users/${user.id}.json`, user);
+   update(user: UserSt ): Observable<UserSt>{
+    console.log(user.id);
+    return this.httpClient.patch<UserSt>(`${this.url}/users/id/${user.id}`, user);
 
 }
+
+
+
+//   getAll(): Observable<UserSt[]> {
+//     return this.httpClient.get(`${environment.fbDbUrl}/users.json`)
+//       .pipe(map((response: {[key: string]: any}) => {
+//         return Object
+//           .keys(response)
+//           .map(key => ({
+//             ...response[key],
+//             id: key,
+//             date: new Date(response[key].date)
+//           }));
+//         console.log('response', response);
+//       }));
+//   }
+//   // getById(id: string){
+//   //   return this.httpClient.get(`${environment.fbDbUrl}/posts/${id}.json`)
+//   // }
+//   getById(id: number): Observable<UserSt> {
+//     return this.httpClient.get<UserSt>(`${environment.fbDbUrl}/users/${id}.json`)
+//       .pipe(map((user: UserSt) => {
+//         return {
+//           ...user, id
+//         };
+//       }));
+//   }
+//
+//   remove(id: number): Observable<void> {
+//     console.log('remove class', id);
+//     return this.httpClient.delete<void>(`${environment.fbDbUrl}/users/${id}.json`);
+//   }
+//
+//  update(user: UserSt): Observable<UserSt>{
+//    // console.log(user.id);
+//     return this.httpClient.patch<UserSt>(`${environment.fbDbUrl}/users/${user.id}.json`, user);
+//
+// }
 }
 
 // getUsers(): Observable<UserSt[]> {

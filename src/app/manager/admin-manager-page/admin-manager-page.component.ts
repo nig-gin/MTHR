@@ -24,8 +24,8 @@ export class AdminManagerPageComponent implements OnInit, OnDestroy{
   users: UserSt[] = [];
   trusted!: boolean;
 
-  displayedColumns: string[] = ['username', 'categoria', 'fullName',
-    'email', 'password', 'phone', 'prompt', 'act'];
+  displayedColumns: string[] = ['username', 'fullName',
+    'password', 'phone', 'position', 'act'];
 
   // username!: [string];
   name!: string;

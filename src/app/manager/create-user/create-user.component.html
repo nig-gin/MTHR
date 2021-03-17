@@ -3,7 +3,7 @@
     <mat-label>Company </mat-label>
     <input matInput disabled value="Interprojekt GMBH">
   </mat-form-field>
-
+{{this.form.value.mexCat}}
   <table class="example-full-width" cellspacing="0">
     <tr>
       <td>
@@ -15,7 +15,7 @@
       <td>
         <mat-form-field class="example-full-width">
           <mat-label>Должность:</mat-label>
-          <input matInput formControlName="categoria">
+          <input matInput formControlName="position">
         </mat-form-field>
       </td>
     </tr>
@@ -48,18 +48,13 @@
       </td>
     </tr>
 
-      <mat-form-field class="example-full-width2">
-        <mat-label>Описание:</mat-label>
-        <input matInput placeholder="............." formControlName="prompt">
-      </mat-form-field>
 
 
 
   </table>
 
   <button mat-stroked-button color="basic"
-          type="submit"
-          (click)="submit()">
+          type="submit">
     Создать
   </button>
   <button class="btn-btn-right"

@@ -20,14 +20,13 @@ export class CreateUserComponent implements OnInit {
 
     this.form = new FormGroup({
       fullName: new FormControl(null, Validators.required),
-      categoria: new FormControl(null, Validators.required),
       username: new FormControl(null, Validators.required),
       password: new FormControl(null, [
         Validators.minLength(8) ,
         Validators.required]) ,
-      email: new FormControl(null, Validators.required),
       phone: new FormControl(null, Validators.required),
-      prompt: new FormControl(null, Validators.required),
+      position: new FormControl(null, Validators.required),
+      email: new FormControl(null, Validators.required),
     });
   }
 
@@ -36,13 +35,13 @@ export class CreateUserComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
-
+    console.log('fulln=Name', this.form.value.fullName);
     const user: UserSt = {
-      fullname: this.form.value.fullName,
+      fullName: this.form.value.fullName,
       username: this.form.value.username,
       password: this.form.value.password,
       phone: this.form.value.phone,
-      position: this.form.value.categoria,
+      position: this.form.value.position,
     };
     this.adminRestApiService.create(user).subscribe(() => {
       this.form.reset();

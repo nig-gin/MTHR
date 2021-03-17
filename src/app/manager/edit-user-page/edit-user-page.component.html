@@ -1,4 +1,6 @@
 <div *ngIf="form; else loading">
+
+
 <form  class="example-form" [formGroup]="form" (ngSubmit)="submit()">
   <mat-form-field class="example-full-width">
     <mat-label>Company </mat-label>
@@ -10,13 +12,13 @@
       <td>
         <mat-form-field class="example-full-width">
           <mat-label>ФИО:</mat-label>
-          <input matInput id="fullname1"  formControlName="fullName" >
+          <input matInput   formControlName="fullName" >
         </mat-form-field>
       </td>
       <td>
         <mat-form-field class="example-full-width">
           <mat-label>Должность:</mat-label>
-          <input matInput formControlName="categoria">
+          <input matInput formControlName="position">
         </mat-form-field>
       </td>
     </tr>
@@ -30,17 +32,17 @@
       <td>
         <mat-form-field class="example-full-width">
           <mat-label>Пароль:</mat-label>
-          <input matInput formControlName="password">
+          <input matInput formControlName="password"  >
         </mat-form-field>
       </td>
     </tr>
     <tr>
-      <td>
-        <mat-form-field class="example-full-width">
-          <mat-label>Почта:</mat-label>
-          <input matInput placeholder="@gmail.com" formControlName="email">
-        </mat-form-field>
-      </td>
+<!--      <td>-->
+<!--        <mat-form-field class="example-full-width">-->
+<!--          <mat-label>Почта:</mat-label>-->
+<!--          <input matInput placeholder="@gmail.com" formControlName="email">-->
+<!--        </mat-form-field>-->
+<!--      </td>-->
       <td>
         <mat-form-field class="example-full-width">
           <mat-label>Телефон:</mat-label>
@@ -49,10 +51,7 @@
       </td>
     </tr>
 
-    <mat-form-field class="example-full-width2">
-      <mat-label>Описание:</mat-label>
-      <input matInput placeholder="............." formControlName="prompt">
-    </mat-form-field>
+
 
 
   </table>

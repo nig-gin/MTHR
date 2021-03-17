@@ -55,9 +55,9 @@ export class DialogOverviewComponent implements OnInit, OnDestroy{
   }
   onYesClick(id: number): void {
     console.log( ' yes on click id = ', this.data.id);
-    this.dSub = this.restApiService.remove(id).subscribe(() => {
-      this.users = this.users.filter(user => user.id !== id);
-    });
+    // this.dSub = this.restApiService.remove(id).subscribe(() => {
+    //   this.users = this.users.filter(user => user.id !== id);
+    // });
     console.log(id + 'remove bottom');
     this.dialogRef.close();
   }

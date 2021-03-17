@@ -4,7 +4,7 @@ import {Observable} from 'rxjs';
 import {UserSt} from '../../../../shared/object/user-st';
 import {environment} from '../../../../../environments/environment';
 import {catchError, map} from 'rxjs/operators';
-import {jourInterface} from '../../../../shared/object/interfeces';
+import {createJournal, jourInterface} from '../../../../shared/object/interfeces';
 import {test} from '../../../journal-page/create-reglam-works-page/create-reglam-works-page.component';
 import {Category} from '../../../../shared/object/category';
 import {Mexanisms} from '../../../../shared/object/mechanisms';
@@ -35,10 +35,10 @@ constructor(private httpClient: HttpClient) {}
   }
 
 
- create(reglamWork: jourInterface): Observable<jourInterface> {
-  return this.httpClient.post<jourInterface>(`${this.url}/works/add`, reglamWork)
+ create(reglamWork: createJournal): Observable<createJournal> {
+  return this.httpClient.post<createJournal>(`${this.url}/works/add`, reglamWork)
     .pipe(
-      map((reglamWorks: jourInterface) => reglamWorks as jourInterface),
+      map((reglamWorks: createJournal) => reglamWorks as createJournal),
     );
  }
   getCategory(): Observable<Category[]> {

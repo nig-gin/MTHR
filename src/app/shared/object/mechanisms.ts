@@ -3,7 +3,7 @@ import {Category} from './category';
 
 export interface Mexanisms {
   id: number;
-  hour: number;
-  title: string;
-  category: Category;
+  hour?: number;
+  title?: string;
+  category?: Category;
 }

@@ -1,39 +1,55 @@
 
 
 
-<div *ngIf="journal.length; else loading">
+<!--<div *ngIf="journal.length; else loading">-->
   <mat-form-field>
     <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    <input matInput (keyup)="applyFilter($event)" placeholder= "Начать поиск..." #input>
   </mat-form-field>
 
 
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource" matSort>
-    <ng-container matColumnDef="mex-hour">
+    <ng-container matColumnDef="mex-cat">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Категория:</th>
         <td mat-cell *matCellDef="let journal"> {{journal.category.title}} </td>
     </ng-container>
 
     <!-- ID Column -->
-    <ng-container matColumnDef="mex-title">
+    <ng-container matColumnDef="mex-hour">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Задание:</th>
-      <td mat-cell *matCellDef="let journal"> {{journal.hour}} </td>
+      <td mat-cell *matCellDef="let journal"> {{journal.title}} </td>
     </ng-container>
     <!-- Name Column -->
     <ng-container matColumnDef="title">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> title </th>
-      <td mat-cell *matCellDef="let journal"> {{journal.title }} </td>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Задание наработки часов </th>
+      <td mat-cell *matCellDef="let journal"> {{journal.hour }} </td>
     </ng-container>
     <!-- Progress Column -->
     <ng-container matColumnDef="hour">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Исполнитель </th>
-      <td mat-cell *matCellDef="let journal "> {{journal.id}} </td>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Механизм </th>
+      <td mat-cell *matCellDef="let journal "> {{journal.mexanism.title}} </td>
     </ng-container>
     <!-- Color Column -->
-    <ng-container matColumnDef="user">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> user </th>
-      <td mat-cell *matCellDef="let journal " >{{journal.user}}</td>
+    <ng-container matColumnDef="profile">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Исполнитель </th>
+      <td mat-cell *matCellDef="let journal " >{{journal.profile.fullName}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef= "edit">
+      <th mat-header-cell *matHeaderCellDef class="text-center"> Действие </th>
+      <td mat-cell *matCellDef="let users" class="text-center">
+        <a  class="bottom-admin"
+            mat-raised-button color="primary"
+        >
+<!--            [routerLink]="['/manager','user', users.id, 'edit']"-->
+
+          Изменить
+        </a>
+        <a mat-button  mat-raised-button color="warn"> Удалить</a>
+        <!--         (click)="remove(users.id)">Удалить</a>-->
+
+      </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -46,11 +62,11 @@
 
   </table>
 
-  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  <mat-paginator [pageSizeOptions]="[10, 5, 25, 100]"></mat-paginator>
 
   <a mat-stroked-button color="basic" [routerLink]="['/journal', 'create-work']">Добавить</a>
 </div>
-</div>
+<!--</div>-->
 
 <ng-template #loading >
   <mat-progress-bar mode="indeterminate"></mat-progress-bar>
