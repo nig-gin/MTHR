@@ -1,21 +1,40 @@
+.example-container .mat-form-field + .mat-form-field {
+  margin-left: 8px;
 
-.mat-raised-button {
-  align: centr;
 }
-.form-group {
+
+.example-right-align {
+  text-align: right;
+
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+
+
+
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+
+}
+.example-container {
   align-content: center;
 }
-.form-control{
+.blocktext {
 
-  width: 400px;
+margin: auto;
 }
-.conteiner-form
-{
-  margin-left: auto;
-  margin-right: auto;
-  width:400px;
+.user {
 
+  width: 40%;
+  &.btn-login{
+    width: 30%;
+  }
+  &.contlor-form{
+    background: #00ffa9;
+  }
 }
-.alert-danger{
-  color: #111111;
-}
+

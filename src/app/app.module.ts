@@ -16,6 +16,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {ManagerModule} from './manager/manager.module';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -36,8 +38,11 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatTableModule,
     MatFormFieldModule,
     ManagerModule,
+    MatInputModule,
+    MatIconModule
 
-      ],
+
+  ],
   providers: [],
   bootstrap: [AppComponent]
 

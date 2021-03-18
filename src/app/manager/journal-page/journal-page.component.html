@@ -1,8 +1,7 @@
-
-
-
 <!--<div *ngIf="journal.length; else loading">-->
-  <mat-form-field>
+
+
+<mat-form-field>
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder= "Начать поиск..." #input>
   </mat-form-field>
@@ -39,14 +38,21 @@
     <ng-container matColumnDef= "edit">
       <th mat-header-cell *matHeaderCellDef class="text-center"> Действие </th>
       <td mat-cell *matCellDef="let users" class="text-center">
-        <a  class="bottom-admin"
-            mat-raised-button color="primary"
+        <button mat-icon-button
+                class="edit-icon"
         >
+
+          <mat-icon aria-hidden="false">edit</mat-icon>
+        </button>
 <!--            [routerLink]="['/manager','user', users.id, 'edit']"-->
 
-          Изменить
-        </a>
-        <a mat-button  mat-raised-button color="warn"> Удалить</a>
+
+
+        <button mat-icon-button
+                class="delete-icon"
+        >
+          <mat-icon aria-hidden="false">delete</mat-icon>
+        </button>
         <!--         (click)="remove(users.id)">Удалить</a>-->
 
       </td>
@@ -57,7 +63,7 @@
 
     <!-- Row shown when there is no matching data. -->
     <tr class="mat-row" *matNoDataRow>
-      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      <td class="mat-cell" colspan="4">Нету значений фильтра "{{input.value}}"</td>
     </tr>
 
   </table>
@@ -71,3 +77,4 @@
 <ng-template #loading >
   <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 </ng-template>
+

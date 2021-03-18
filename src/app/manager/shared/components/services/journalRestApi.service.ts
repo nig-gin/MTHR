@@ -4,7 +4,7 @@ import {Observable} from 'rxjs';
 import {UserSt} from '../../../../shared/object/user-st';
 import {environment} from '../../../../../environments/environment';
 import {catchError, map} from 'rxjs/operators';
-import {createJournal, jourInterface} from '../../../../shared/object/interfeces';
+import {createJournal, jourInterface, reglamW} from '../../../../shared/object/interfeces';
 import {test} from '../../../journal-page/create-reglam-works-page/create-reglam-works-page.component';
 import {Category} from '../../../../shared/object/category';
 import {Mexanisms} from '../../../../shared/object/mechanisms';
@@ -18,7 +18,22 @@ import {Mexanisms} from '../../../../shared/object/mechanisms';
 export class JournalRestApiService {
   url = 'http://192.168.1.17:8080';
   urlAddHero = 'http://192.168.1.17:8080/works/add';
+  post: any;
 constructor(private httpClient: HttpClient) {}
+
+// postReglam(postReq: reglamW): Observable<any> {
+//   return    this.httpClient.post<jourInterface>(`${this.url}/works/search`, postReq)
+//     .pipe(
+//       map((postReqs: jourInterface) => postReqs as jourInterface),
+//     );
+//   console.log('consol log postReq', this.post);
+//
+// }
+
+  postData(postReq: reglamW){
+
+    return this.httpClient.post(`${this.url}/works/search`, postReq);
+  }
 
   getAll(): Observable<jourInterface[]> {
     return this.httpClient.get(`${this.url}/works/all`)

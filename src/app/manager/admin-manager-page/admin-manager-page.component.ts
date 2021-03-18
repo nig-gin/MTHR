@@ -39,6 +39,7 @@ export class AdminManagerPageComponent implements OnInit, OnDestroy{
 ngOnInit(): void {
    this.restApiService.getAll().subscribe(users => {
      this.users = users;
+     console.log('User: ', this.users );
   });
 
 }

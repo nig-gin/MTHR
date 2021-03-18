@@ -26,6 +26,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import { CreateReglamWorksPageComponent } from './journal-page/create-reglam-works-page/create-reglam-works-page.component';
 import {JournalRestApiService} from './shared/components/services/journalRestApi.service';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
 
 
 
@@ -42,22 +44,24 @@ import {JournalRestApiService} from './shared/components/services/journalRestApi
     EditUserPageComponent,
     CreateReglamWorksPageComponent],
 
-  imports: [
-    CommonModule,
-    ManagerRoutingModule,
-    MatButtonModule,
-    HttpClientModule,
-    MatTableModule,
-    MatSelectModule,
-    MatDialogModule,
-    FormsModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatGridListModule,
-    MatProgressBarModule,
-    MatPaginatorModule,
-    MatSortModule
-  ],
+    imports: [
+        CommonModule,
+        ManagerRoutingModule,
+        MatButtonModule,
+        HttpClientModule,
+        MatTableModule,
+        MatSelectModule,
+        MatDialogModule,
+        FormsModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatGridListModule,
+        MatProgressBarModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatFormFieldModule,
+        MatIconModule
+    ],
   exports: [RouterModule],
   providers: [AdminRestApiService, JournalRestApiService],
 })
