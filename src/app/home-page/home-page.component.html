@@ -8,14 +8,14 @@
    <form  >
      <div class="example-container ">
        <mat-form-field appearance="fill" id="user" class="user">
-         <mat-label >Нажмите что бы ввести Email</mat-label>
+         <mat-label >Нажмите что бы ввести Email:</mat-label>
          <input matInput   placeholder="ivan@gmail.com" [formControl]="email" required >
          <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error>
        </mat-form-field>
      </div>
      <div class="example-container " >
        <mat-form-field appearance="fill" class="user">
-         <mat-label >Enter your password</mat-label>
+         <mat-label >Введите пароль:</mat-label>
          <input matInput  placeholder="password" [formControl]="password" required>
          <mat-error *ngIf="password.invalid">{{getErrorMessagePassword()}}</mat-error>
        </mat-form-field>

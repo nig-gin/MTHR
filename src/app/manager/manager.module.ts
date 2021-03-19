@@ -28,21 +28,26 @@ import { CreateReglamWorksPageComponent } from './journal-page/create-reglam-wor
 import {JournalRestApiService} from './shared/components/services/journalRestApi.service';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
+import {searchPipe} from './shared/searchPipe';
+import { EditWorkPageComponent } from './journal-page/edit-work-page/edit-work-page.component';
 
 
 
 
 @NgModule({
-  declarations: [
-    ManagerLayoutComponent,
-    CalendarPageComponent,
-    ListWorkPageComponent,
-    AdminManagerPageComponent,
-    JournalPageComponent,
-    DialogOverviewComponent,
-    CreateUserComponent,
-    EditUserPageComponent,
-    CreateReglamWorksPageComponent],
+    declarations: [
+        ManagerLayoutComponent,
+        CalendarPageComponent,
+        ListWorkPageComponent,
+        AdminManagerPageComponent,
+        JournalPageComponent,
+        DialogOverviewComponent,
+        CreateUserComponent,
+        EditUserPageComponent,
+        CreateReglamWorksPageComponent,
+        searchPipe,
+        EditWorkPageComponent
+    ],
 
     imports: [
         CommonModule,

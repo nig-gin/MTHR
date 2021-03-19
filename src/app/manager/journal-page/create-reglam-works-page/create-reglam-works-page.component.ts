@@ -115,7 +115,7 @@ export class CreateReglamWorksPageComponent implements OnInit, OnDestroy {
         }
       },
       profile: {
-        id: this.selectedValueUser ,
+          id: 1 ,
         fullName  : '',
         password: '',
         phone: '',

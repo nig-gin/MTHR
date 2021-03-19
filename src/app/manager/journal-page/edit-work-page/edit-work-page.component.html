@@ -1,0 +1,57 @@
+<!--&lt;!&ndash;- Note that these columns can be defined in any order.-->
+<!--      The actual rendered columns are set as a property on the row definition" &ndash;&gt;-->
+
+<!--<div *ngIf="users.length; else loading">-->
+<!--  <table  mat-table [dataSource]="users" class="mat-elevation-z9">-->
+
+<!--    <ng-container  matColumnDef="username">-->
+<!--      <th mat-header-cell *matHeaderCellDef class="text-left"> Логин </th>-->
+<!--      <td mat-cell  *matCellDef="let users" class="text-left"> {{users.username}} </td>-->
+<!--    </ng-container>-->
+<!--    <ng-container matColumnDef="fullName">-->
+<!--      <th mat-header-cell *matHeaderCellDef class="text-center"> ФИО </th>-->
+<!--      <td mat-cell *matCellDef="let users"  class="text-center"> {{users.fullName}} </td>-->
+<!--    </ng-container>-->
+<!--    <ng-container matColumnDef="password">-->
+<!--      <th mat-header-cell *matHeaderCellDef class="text-center"> Пароль </th>-->
+<!--      <td mat-cell *matCellDef="let users" class="text-center"> {{users.password}} </td>-->
+<!--    </ng-container>-->
+<!--    <ng-container matColumnDef="phone">-->
+<!--      <th mat-header-cell *matHeaderCellDef class="text-center" > Телефон </th>-->
+<!--      <td mat-cell *matCellDef="let users" class="text-center"> {{users.phone}} </td>-->
+<!--    </ng-container>-->
+<!--    <ng-container matColumnDef="position">-->
+<!--      <th mat-header-cell *matHeaderCellDef class="text-center"> Должность </th>-->
+<!--      <td mat-cell *matCellDef="let users" class="text-center"> {{users.position}} </td>-->
+<!--    </ng-container>-->
+
+<!--    <ng-container matColumnDef="act">-->
+<!--      <th mat-header-cell *matHeaderCellDef class="text-center"> Действие </th>-->
+<!--      <td mat-cell *matCellDef="let users" class="text-center">-->
+<!--        <button mat-stroked-button color="primary"-->
+
+<!--                [routerLink]="['/manager','user', users.id, 'edit']"-->
+<!--        >-->
+<!--          Изменить-->
+<!--        </button>-->
+<!--        <a mat-button (click)="openDialog( users.id,  users.username)" mat-stroked-button color="warn" style="margin-left:  20px "> Удалить</a>-->
+<!--        &lt;!&ndash;         (click)="remove(users.id)">Удалить</a>&ndash;&gt;-->
+
+<!--      </td>-->
+<!--    </ng-container>-->
+<!--    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
+<!--    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>-->
+<!--  </table>-->
+<!--</div>-->
+<!--<div *ngIf="users.length">-->
+<!--  <br>-->
+
+<!--  <a-->
+<!--    mat-stroked-button color="basic" [routerLink]="['/manager', 'create-user']" >Создать пользователя</a>-->
+<!--</div>-->
+
+
+<!--<ng-template #loading >-->
+<!--  <mat-progress-bar mode="indeterminate"></mat-progress-bar>-->
+<!--</ng-template>-->
+

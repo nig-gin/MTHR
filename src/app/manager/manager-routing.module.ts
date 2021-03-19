@@ -17,7 +17,9 @@ const routes: Routes = [{ path: '', component: ManagerLayoutComponent, children:
     { path: 'admin-manager', component: AdminManagerPageComponent},
     {path: 'create-user', component: CreateUserComponent},
     {path: 'user/:id/edit', component: EditUserPageComponent},
-    {path: 'journal/create-work', component: CreateReglamWorksPageComponent}
+    {path: 'journal/create-work', component: CreateReglamWorksPageComponent},
+    {path: 'journal/:id/editR', component: EditUserPageComponent},
+
   ]}
    ];
 
