@@ -95,6 +95,20 @@ constructor(private httpClient: HttpClient) {}
           console.log('user', response);
         }));
     }
+
+    getlistHome(): Observable<any> {
+  return this.httpClient.get('C://gsd/list.json ')
+    .pipe(map((response: { [key: string]: any }) => {
+      return Object
+        .keys(response)
+        .map(key => ({
+          ...response[key],
+          id: key,
+          date: new Date(response[key].date)
+        }));
+      console.log('list', response);
+    }));
+    }
   }
 
   // addHero1(hero: Hero): Observable<Hero> {

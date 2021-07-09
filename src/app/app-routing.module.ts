@@ -7,10 +7,9 @@ import {JournalPageComponent} from './manager/journal-page/journal-page.componen
 
 const routes: Routes = [
   {
-    path: '', component: MainLayoutComponent, children: [
+      path: '', component: MainLayoutComponent, children: [
       {path: '', redirectTo: '/', pathMatch: 'full'},
       {path: '', component: HomePageComponent}
-
     ]
   },
   { path: 'manager', loadChildren: () => import('./manager/manager.module').then(m => m.ManagerModule) }

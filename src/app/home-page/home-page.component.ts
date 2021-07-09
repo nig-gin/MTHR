@@ -1,6 +1,8 @@
 import {Component, Injectable, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
+import {JournalRestApiService} from "../manager/shared/components/services/journalRestApi.service";
+import countries from "../home-page/countries.json"
 
 @Injectable({ providedIn: 'root'})
 
@@ -11,8 +13,13 @@ import {Router} from '@angular/router';
 })
 export class HomePageComponent implements OnInit{
   hide = true;
+  title = 'json-file-read-angular';
+  public countryList:{name:string, code:string}[] = countries;
+
 constructor(
-  private router: Router
+  private router: Router,
+  private rest: JournalRestApiService,
+
 ) {
 }
   loginForm = new FormGroup({
@@ -30,13 +37,24 @@ constructor(
   onSubmit() {
     console.warn(this.loginForm.value);
   }
-  ngOnInit(): void {  }
+  ngOnInit(): void {
+
+
+
+  }
+  jsontest(){
+    console.log('database:', this.countryList)
+  }
   login() {
     this.router.navigate(['/manager', 'journal']);
     return console.log('Auth_ok');
   }
 
-
+  // ngOnInit(): void {
+  //   this.restApiService.getAll().subscribe(users => {
+  //     this.users = users;
+  //     console.log('User: ', this.users );
+  //   });
 
   getErrorMessageEmail() {
     if (this.email.hasError('required')) {

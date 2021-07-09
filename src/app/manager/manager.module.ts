@@ -30,6 +30,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {searchPipe} from './shared/searchPipe';
 import { EditWorkPageComponent } from './journal-page/edit-work-page/edit-work-page.component';
+import {MatTab, MatTabsModule} from "@angular/material/tabs";
+
 
 
 
@@ -65,7 +67,8 @@ import { EditWorkPageComponent } from './journal-page/edit-work-page/edit-work-p
         MatPaginatorModule,
         MatSortModule,
         MatFormFieldModule,
-        MatIconModule
+        MatIconModule,
+        MatTabsModule
     ],
   exports: [RouterModule],
   providers: [AdminRestApiService, JournalRestApiService],
